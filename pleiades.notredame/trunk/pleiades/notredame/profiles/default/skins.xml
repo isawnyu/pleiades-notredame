@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Notre Dame">
+
+ <object name="pleiades_notredame_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="pleiades.notredame:skins/pleiades_notredame_custom_images"/>
+ <object name="pleiades_notredame_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="pleiades.notredame:skins/pleiades_notredame_custom_templates"/>
+ <object name="pleiades_notredame_styles"
+    meta_type="Filesystem Directory View"
+    directory="pleiades.notredame:skins/pleiades_notredame_styles"/>
+
+ <skin-path name="Notre Dame" based-on="Plone Default">
+  <layer name="pleiades_notredame_custom_images"
+     insert-after="custom"/>
+  <layer name="pleiades_notredame_custom_templates"
+     insert-after="pleiades_notredame_custom_images"/>
+  <layer name="pleiades_notredame_styles"
+     insert-after="pleiades_notredame_custom_templates"/>
+ </skin-path>
+
+</object>

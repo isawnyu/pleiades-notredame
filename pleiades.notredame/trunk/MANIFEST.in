@@ -1,0 +1,2 @@
+recursive-include pleiades *
+global-exclude *pyc

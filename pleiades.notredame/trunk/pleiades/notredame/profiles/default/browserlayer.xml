@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+
+ <layer name="pleiades.notredame"
+        interface="pleiades.notredame.browser.interfaces.IPlonethemeNotredameLayer" />
+        
+</layers>
