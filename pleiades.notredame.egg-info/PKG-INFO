@@ -1,10 +1,10 @@
 Metadata-Version: 1.0
 Name: pleiades.notredame
-Version: 1.2-beta2beta
+Version: 0.2
 Summary: Theme for Plone 3 with color scheme based on new Plone Logo
-Home-page: http://svn.plone.org/svn/collective/pleiades.notredame
-Author: Harito Reisman, Christian Schneider
-Author-email: notredame@haritomedia.com
+Home-page: http://atlantides.org/trac/pleiades/browser/pleiades.notredame
+Author: Sean Gillies
+Author-email: sean.gillies@gmail.com
 License: GPL
 Description: pleiades.notredame Package Readme
         =========================
