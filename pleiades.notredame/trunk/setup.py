@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.2-beta2'
+version = '0.2'
 
 setup(name='pleiades.notredame',
       version=version,
@@ -15,9 +15,9 @@ setup(name='pleiades.notredame',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='web zope plone theme',
-      author='Harito Reisman, Christian Schneider',
-      author_email='notredame@haritomedia.com',
-      url='http://svn.plone.org/svn/collective/pleiades.notredame',
+      author='Sean Gillies',
+      author_email='sean.gillies@gmail.com',
+      url='http://atlantides.org/trac/pleiades/browser/pleiades.notredame',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['pleiades'],

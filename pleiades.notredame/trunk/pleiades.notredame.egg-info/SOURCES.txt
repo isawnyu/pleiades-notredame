@@ -38,6 +38,8 @@ pleiades/notredame/browser/images/arrow-gray.gif
 pleiades/notredame/browser/images/arrow-gray.png
 pleiades/notredame/browser/images/arrow-gray_rtl.gif
 pleiades/notredame/browser/images/arrow-gray_rtl.png
+pleiades/notredame/browser/images/background-nereid.gif
+pleiades/notredame/browser/images/background-nereid.png
 pleiades/notredame/browser/images/background_slice.png
 pleiades/notredame/browser/images/global-tabs-gray.gif
 pleiades/notredame/browser/images/global-tabs-gray.png
@@ -81,6 +83,7 @@ pleiades/notredame/profiles/default/skins.xml
 pleiades/notredame/profiles/default/viewlets.xml
 pleiades/notredame/skins/pleiades_notredame_custom_images/CONTENT.txt
 pleiades/notredame/skins/pleiades_notredame_custom_images/favicon.ico
+pleiades/notredame/skins/pleiades_notredame_custom_images/pleiades-logo-neg-tag.png
 pleiades/notredame/skins/pleiades_notredame_custom_images/plone-logo-neg-tag.gif
 pleiades/notredame/skins/pleiades_notredame_custom_images/plone-logo-neg-tag.png
 pleiades/notredame/skins/pleiades_notredame_custom_templates/CONTENT.txt
