@@ -1,2 +1,3 @@
+global-include *.txt *.zcml *.GPL *.css *.gif *.pt *.xml *.kml *.js
 recursive-include pleiades *
 global-exclude *pyc
