@@ -1,7 +1,12 @@
 MANIFEST.in
 README.txt
+pleiades.notredame-configure.zcml
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 pleiades/__init__.py
 pleiades.notredame.egg-info/PKG-INFO
 pleiades.notredame.egg-info/SOURCES.txt
