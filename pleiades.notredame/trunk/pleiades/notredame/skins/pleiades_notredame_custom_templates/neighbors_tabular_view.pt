@@ -111,7 +111,8 @@
                                                          alt item_icon/description;
                                                          title item_icon/title;
                                                          width item_icon/width;
-                                                         height item_icon/height;" />
+                                                         height item_icon/height;"
+                                         onclick="openinfowindow(this);"/>
                                     <a href="#"
                                        tal:attributes="href python:test(item_type in use_view_action, item_url+'/view', item_url);
                                                        class string:${item_wf_state_class};
@@ -165,7 +166,7 @@
                         </td>
 
                         <td tal:condition="show_about">
-                            <span tal:content="item/distance">N</span> km
+                            <span tal:content="string:${item/distance} km"></span><span id="center-point" style="display:none" tal:content="item/center">lon,lat</span>
                         </td>
 
                         </tal:defs>
