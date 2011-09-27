@@ -2,6 +2,19 @@
 <metal:block define-slot="top_slot" />
 <metal:block use-macro="here/global_defines/macros/defines" />
 
+<!-- Propagates search term wildcard, a smelly hack -->
+<tal:b 
+  condition="python:request.get('submit', 'Submit')=='Search' 
+             and request.get('SearchableText') 
+             and not request['SearchableText'].endswith('*') 
+             and request.set('SearchableText', request['SearchableText']+'*')"
+    />
+
+<!-- Customize to send a site message on every page -->
+<!--tal:b 
+  condition="python:request and context.plone_utils.addPortalMessage((u'Site will be read-only while undergoing maintenance from 15:00-21:00 UTC on February 7 and 15:00-21:00 UTC on February 8.'))" 
+    /-->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xml:lang="en"
       lang="en"

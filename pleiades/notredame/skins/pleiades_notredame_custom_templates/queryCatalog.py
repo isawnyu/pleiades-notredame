@@ -71,11 +71,18 @@ def rootAtNavigationRoot(query):
     if 'path' not in query:
         query['path'] = getNavigationRoot(context)
 
+addSearchableTextWildcard=False
+
 # Avoid creating a session implicitly.
 for k in REQUEST.keys():
     if k in ('SESSION',):
         continue
     v = REQUEST.get(k)
+
+    # If called from search template, but not from search_form
+    if k in ('submit') and v == "Search":
+        addSearchableTextWildcard=True
+
     if v and k in indexes:
         if k in quote_logic_indexes:
             v = quote_bad_chars(v)
@@ -93,6 +100,10 @@ for k in REQUEST.keys():
         else:
             query[k] = v
 
+v = query.get('SearchableText')
+if v and addSearchableTextWildcard and not v.endswith("*"):
+    query['SearchableText'] = v + "*"
+
 for k, v in second_pass.items():
     qs = query.get(k)
     if qs is None:
@@ -101,7 +112,7 @@ for k, v in second_pass.items():
     q.update(v)
 
 # Geolocation
-if 'lowerLeft' in REQUEST.keys():
+if 'lowerLeft' in REQUEST.keys() and REQUEST.get('lowerLeft'):
     coords = map(float, REQUEST.get('lowerLeft').split(','))
     ur = REQUEST.get('upperRight') or None
     if ur:
@@ -116,11 +127,10 @@ if 'lowerLeft' in REQUEST.keys():
     elif range == 'nearest':
         limit = int(REQUEST.get('limit', 1))
         qv = (coords, limit)
-    query['geolocation'] = {'query': qv, 'range': range}
-
-elif 'bbox' in REQUEST.keys():
+    query['where'] = {'query': qv, 'range': range}
+elif 'bbox' in REQUEST.keys() and REQUEST.get('bbox'):
     coords = map(float, REQUEST.get('bbox').split(','))
-    query['geolocation'] = {'query': coords, 'range': 'intersection'}
+    query['where'] = {'query': coords, 'range': 'intersection'}
 
 
 # doesn't normal call catalog unless some field has been queried
@@ -138,3 +148,4 @@ if show_query:
         pass
 
 return results
+

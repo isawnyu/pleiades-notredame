@@ -405,7 +405,7 @@
                 <input class="context"
                        type="submit"
                        name="submit"
-                       value="Search"
+                       value="Advanced Search"
                        i18n:attributes="value label_search;"
                        />
             </div>
