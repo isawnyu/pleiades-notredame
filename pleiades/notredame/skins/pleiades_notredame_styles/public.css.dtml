@@ -7,7 +7,14 @@
 
 /* YOUR CSS RULES START HERE */
 
+div.documentByLine {
+  margin-bottom: 1.0em;
+}
 
+a {
+  color: #2575AD;
+  text-decoration: underline;
+}
 
 /* YOUR CSS RULES STOP HERE */
 
@@ -15,4 +22,5 @@
 
 /* Latest version of the documentation on pre-defined properties from Plone 
    can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */
+
 
