@@ -23,7 +23,7 @@
      tal:define="auth nocall:here/acl_users/credentials_cookie_auth|here/cookie_authentication|nothing;
                  came_from request/came_from|request/HTTP_REFERER|nothing;
                  came_from python:test(utool.isURLInPortal(came_from), came_from, None);
-                 errors options/state/getErrors;
+                 errors options/state/getErrors|python:{};
                  ac_identity string:__ac_identity_url;
                  ac_name auth/name_cookie|string:__ac_name;
                  ac_password auth/pw_cookie|string:__ac_password;
@@ -151,7 +151,7 @@
     <p i18n:translate="description_no_account">
     If you want a full-featured account, please see the
     <span i18n:name="registration_form">
-        <a href="http://www.atlantides.org/trac/pleiades/wiki/PleiadesCommunity">registration instructions</a></span>.
+        <a href="/welcome">registration instructions</a></span>.
     Else, you may log in to comment via OpenId.
     </p>
 </div>
@@ -216,11 +216,11 @@
 
                    <p class="discreet"
                        i18n:translate="openid_intro">
-                      If you do not have an OpenID, you may get one from 
-                      <a href="http://www.myopenid.com/"
+                      To get an OpenID, check this list of  
+                      <a href="https://openid.net/get-an-openid/"
                          class="link-plain"
                          target="_blank"
-                         i18n:name="openid_myopenid">MyOpenID.com</a>.
+                         i18n:name="providers">providers</a>. You may already have one.
                    </p>
 
                </form>
