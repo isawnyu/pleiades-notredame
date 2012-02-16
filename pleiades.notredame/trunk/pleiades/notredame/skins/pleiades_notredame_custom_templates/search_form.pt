@@ -11,28 +11,41 @@
     <metal:block fill-slot="column_one_slot" />
     <metal:block fill-slot="column_two_slot" />
 
+    <metal:block fill-slot="style_slot">
+<style type="text/css">
+ul.formTabs {
+margin: 0 0 -1em;
+}
+</style>
+    </metal:block>
+
 <div metal:fill-slot="main">
 
+    <div>
     <h1 class="documentFirstHeading"
         i18n:translate="heading_advanced_search">Advanced search for content</h1>
+    </div>
 
+    <div>
     <p i18n:translate="description_advanced_search">
     This search form enables you to find content on the site by
-    specifying one or more search terms.
-    <br />
-    Remember that you can use the quick search anytime, it's normally
-    good enough, this search form is just if you want to be more specific.
+    specifying one or more terms from the five tabs below.</p>
+    
+    <p>Remember that you can use the quick search anytime, it's often
+    good enough, this search form is for greater specificity.
     </p>
+    </div>
 
+    <div >
     <form action="search"
-          class="enableAutoFocus"
+          class="enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection"
           method="get"
           name="search"
           tal:define="DateTime python:modules['DateTime'].DateTime">
 
-        <fieldset>
+        <fieldset id="fieldset-basic">
 
-            <legend i18n:translate="legend_search_terms">Basic Terms</legend>
+            <legend id="fieldsetlegend-basic" i18n:translate="legend_search_terms">Basic Terms</legend>
 
             <div class="field">
                 <label for="SearchableText" i18n:translate="label_search_text">Search Text</label>
@@ -66,6 +79,29 @@
                        size="25"
                        />
             </div>
+
+
+            <div class="field">
+                <label for="Description" i18n:translate="label_description">Description</label>
+
+                <div class="formHelp" i18n:translate="help_search_description">
+                Return items matching this description.
+                Multiple words may be found
+                by combining them with <strong>AND</strong> and <strong>OR</strong>.
+                </div>
+    
+                <input type="text"
+                       id="Description"
+                       name="Description"
+                       size="25"
+                       />
+            </div>
+
+          </fieldset>
+
+        <fieldset id="fieldset-categories">
+          <legend id="fieldsetlegend-categories">Categorization</legend>
+
 
             <div class="field">
                 <label for="Subject" i18n:translate="label_categories">Categories</label>
@@ -115,27 +151,131 @@
                     Match all
                 </label>
             </div>
-    
-            <div class="field">
-                <label for="Description" i18n:translate="label_description">Description</label>
 
-                <div class="formHelp" i18n:translate="help_search_description">
-                Return items matching this description.
-                Multiple words may be found
-                by combining them with <strong>AND</strong> and <strong>OR</strong>.
+            <div class="field">
+                <label for="getFeatureType" i18n:translate="label_featureTypes">Feature Types</label>
+
+                <div class="formHelp" i18n:translate="help_search_featureTypes">
+                Return items matching some or all of these Feature Types.
+                Multiple types may be found by pressing <strong>Ctrl</strong>
+                (or <strong>Apple</strong> key on Mac) while clicking the
+                keywords.
                 </div>
-    
-                <input type="text"
-                       id="Description"
-                       name="Description"
-                       size="25"
-                       />
+
+                <select name="getFeatureType:list"
+                        id="getFeatureType"
+                        size="7"
+                        multiple="multiple"
+                        tal:define="contentFeatureTypes here/getFeatureType|nothing;
+                                    usedFeatureTypes python:here.portal_catalog.uniqueValuesFor('getFeatureType');"
+                        >
+                    <option value="#"
+                            tal:repeat="subject usedFeatureTypes"
+                            tal:content="subject"
+                            tal:attributes="value subject"
+                            i18n:domain="plone-metadata"
+                            i18n:translate=""
+                            >dummy</option>
+                </select>
+                <br />
+
+                <input type="radio"
+                       name="getFeatureType_usage:ignore_empty"
+                       id="getFeatureType_or"
+                       value=""
+                       class="noborder"
+                       tal:attributes="checked python:1"/>
+                    <label for="Subject_or" i18n:translate="description_featureType_or">
+                        Match any
+                    </label>
+                    <br />
+
+                <input type="radio"
+                        name="get_usage:ignore_empty"
+                        id="getFeatureType_and"
+                        value="operator:and"
+                        class="noborder"
+                        tal:attributes="checked python:0"/>
+                <label for="Subject_and" i18n:translate="description_featureType_and">
+                    Match all
+                </label>
             </div>
 
-          </fieldset>
+        </fieldset>
 
-          <fieldset>
-            <legend>Geolocation Parameters</legend>
+        <fieldset id="fieldset-authciteprov">
+          <legend id="fieldsetlegend-authciteprov">Authorship, Citation, and Provenance</legend>
+
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+
+            <div class="field">
+                <label for="Creator" i18n:translate="label_author">Author</label>
+
+                <div class="formHelp" i18n:translate="help_search_author">
+                Return items created by a particular person (username).
+                </div>
+    
+                <tal:creators tal:define="creators python:portal.portal_catalog.uniqueValuesFor('Creator')">
+                    <select name="Creator"
+                            id="Creator"
+                            tal:condition="python: len(creators) &lt;= 30">
+                        <option value="" i18n:translate="label_any_author">Any Author</option>
+                        <metal:block tal:repeat="creator creators">
+                            <option value="" tal:attributes="value creator" tal:content="creator"> username </option>
+                        </metal:block>
+                    </select>
+    
+                    <input name="Creator"
+                           tal:condition="python: len(creators) &gt; 30 " />
+                </tal:creators>
+            </div>
+
+            <div class="field">
+              <label 
+                for="Contributor" 
+                i18n:translate="label_contributors"
+                >Contributor</label>
+
+                <div class="formHelp" i18n:translate="help_search_contributor">
+                Return items contributed to by a particular person (username).
+                </div>
+    
+                <input name="Contributors"/>
+            </div>
+
+            <div class="field">
+              <label 
+                for="Provenance" 
+                i18n:translate="label_provenance"
+                >Provenance</label>
+
+                <div class="formHelp" i18n:translate="help_search_contributor">
+                Return items with matching provenance description (try "DARMC", "Barrington").
+                </div>
+    
+                <input name="Provenance"/>
+            </div>
+
+            <div class="field">
+              <label 
+                for="Cites" 
+                i18n:translate="label_cites"
+                >Cites</label>
+
+                <div class="formHelp" i18n:translate="help_search_cites">
+                Return items with matching citation (try "TIB", "Wikipedia").
+                </div>
+    
+                <input name="Cites"/>
+            </div>
+
+
+        </fieldset>
+
+          <fieldset id="fieldset-geo">
+            <legend id="fieldsetlegend-geo">Geolocation Parameters</legend>
+
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
 
               <div class="field" id="lowerLeft-field">
                 <label class="formQuestion" for="lowerLeft">
@@ -251,9 +391,11 @@
 
           </fieldset>
 
-          <fieldset>
-            <legend>Workflow Details</legend>
-    
+          <fieldset id="fieldset-workflow">
+            <legend id="fieldsetlegend-workflow">Workflow Details</legend>
+
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+
             <div class="field">
                 <label for="created" i18n:translate="label_new_items_since">New items since</label>
 
@@ -325,31 +467,7 @@
                 </div>
             </div>
 
-            <div class="visualClear" id="clear-space-before-author"><!-- --></div>
-            <br />
 
-            <div class="field">
-                <label for="Creator" i18n:translate="label_author">Author</label>
-
-                <div class="formHelp" i18n:translate="help_search_author">
-                Return items created by a particular person.
-                </div>
-    
-                <tal:creators tal:define="creators python:portal.portal_catalog.uniqueValuesFor('Creator')">
-                    <select name="Creator"
-                            id="Creator"
-                            tal:condition="python: len(creators) &lt;= 30">
-                        <option value="" i18n:translate="label_any_author">Any Author</option>
-                        <metal:block tal:repeat="creator creators">
-                            <option value="" tal:attributes="value creator" tal:content="creator"> username </option>
-                        </metal:block>
-                    </select>
-    
-                    <input name="Creator"
-                           tal:condition="python: len(creators) &gt; 30 " />
-                </tal:creators>
-            </div>
-    
             <div class="field">
     
                 <label for="review_state" i18n:translate="label_review_status">Review status</label>
@@ -399,7 +517,15 @@
 
         </fieldset>
 
+
             <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+
+    <input type="hidden" name="fieldsets:list" value="basic" />
+    <input type="hidden" name="fieldsets:list" value="categories" />
+    <input type="hidden" name="fieldsets:list" value="authciteprov" />
+    <input type="hidden" name="fieldsets:list" value="geo" />
+    <input type="hidden" name="fieldsets:list" value="workflow" />
+    <input type="hidden" name="form.submitted" value="1" />
 
             <div class="formControls">
                 <input class="context"
@@ -410,8 +536,10 @@
                        />
             </div>
     </form>
+    </div>
 
 </div>
 
 </html>
+
 
