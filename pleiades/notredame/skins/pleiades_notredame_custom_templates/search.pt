@@ -105,6 +105,12 @@
 
     <div tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+    <p>Ids from this batch <a id="result-batch-ids-visibility" href="#">toggle visibility</a>:</p>
+    <textarea id="result-batch-ids" rows="30" style="display:none; width:50%; margin-bottom:1em;" tal:content="python:'\n'.join([str(result.getId) for result in batch])"></textarea>
+    </div>
+
+    <div tal:condition="results"
+          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
         <dl class="searchResults">
         <tal:results repeat="result batch">
@@ -190,7 +196,21 @@
 
     </div>
 
+
+<script type="text/javascript">
+<!--
+function setHandlers() {
+  jq("#result-batch-ids-visibility").click(function(evt){
+    evt.preventDefault();
+    jq("#result-batch-ids").toggle();});
+}
+
+jq(document).ready(setHandlers);
+-->
+</script>
+
 </div>
+
 </body>
 </html>
 
