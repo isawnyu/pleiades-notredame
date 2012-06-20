@@ -4,7 +4,7 @@ plone_skin:string=Notre Dame
 
 logoName:string=pleiades-logo-neg-tag.png
 
-fontFamily:string=Trebuchet, Trebuchet MS, Verdana, Helvetica, Geneva, sans-serif
+fontFamily:string=Helvetica Neue,Helvetica,Arial,sans-serif
 fontBaseSize:string=small
 fontColor:string=#363636
 fontInvertedColor:string=#ffffff
@@ -51,8 +51,8 @@ globalFontColor:string=#436976
 
 outerBorderColor:string=#2575ad
 
-headingFontFamily:string=Georgia, serif;
-headingSecondaryFontFamily:string=Arial, sans-serif
+headingFontFamily:string=Verdana, sans-serif
+headingSecondaryFontFamily:string=Verdana, sans-serif
 headingFontColor:string=#2575ad
 headingSecondaryFontColor:string=#333333
 
@@ -75,7 +75,7 @@ notifyBackgroundColor:string=#ffffaa
 discreetColor:string=#555464
 helpBackgroundColor:string=#ffffe1
 
-portalMinWidth:string=70em
-portalMaxWidth:string=180em
-columnOneWidth:string=18%
-columnTwoWidth:string=18%
+portalMinWidth:string=1130px
+portalMaxWidth:string=1440px
+columnOneWidth:string=200px
+columnTwoWidth:string=200px

@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+    <metal:block fill-slot="column_one_slot" />
+    <metal:block fill-slot="column_two_slot" />
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     id="content"
+     tal:define="pid options/pid">
+
+     <br/>                 
+                <h1 class="documentFirstHeading"
+                    i18n:translate="heading_site_there_seems_to_be_an_error">
+                    406 Not Acceptable
+                </h1>
+
+                <div id="parent-fieldname-text">
+                <p i18n:translate="description_site_error_double_check_or_search" >
+                An appropriate representation of the requested resource <span tal:content="context/absolute_url">URL</span> (<span tal:content="context/Title">TITLE</span>) could not be found on this server.</p>
+<p i18n:translate="description_site_error_double_check_or_search">Available variants: 
+                </p>
+                <ul>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/" tal:content="string:${context/absolute_url}/">HTML</a>, type text/html</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/turtle" tal:content="string:${context/absolute_url}/turtle">Turtle</a>, type text/turtle</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/rdf" tal:content="string:${context/absolute_url}/rdf">RDF+XML</a>, type application/rdf+xml</li>
+
+</ul>
+<br/>
+</div>
+
+</div>
+</body>
+</html>
+

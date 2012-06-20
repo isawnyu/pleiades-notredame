@@ -18,7 +18,7 @@
 
 <!-- Customize to send a site message on every page -->
 <!--tal:b 
-  condition="python:request and context.plone_utils.addPortalMessage((u'Site will be read-only while undergoing maintenance from 15:00-21:00 UTC on February 7 and 15:00-21:00 UTC on February 8.'))" 
+  condition="python:request and context.plone_utils.addPortalMessage((u'Site will be read-only while undergoing maintenance from 17:00-24:00 US Mountain Time on February 15.'))" 
     /-->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -216,3 +216,4 @@
 </body>
 </html>
 </metal:page>
+
