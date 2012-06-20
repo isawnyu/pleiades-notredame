@@ -16,6 +16,103 @@ a {
   text-decoration: underline;
 }
 
+.PlaceChildItems {
+  margin-top: 0.5em;
+}
+
+.RatingViewlet {
+  margin-right: 0.5em;
+
+}
+
+.AverageRating {
+  white-space: nowrap;
+}
+
+.VoteCount {
+  white-space: nowrap;
+}
+
+.RatingPopup {
+  width: auto;
+  height: auto;
+  background: white;
+  border: 1px solid blue;
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.RatingPopupBody {
+  margin: 0.5em;
+}
+
+#map-children {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#fields-column {
+  vertical-align: top;
+  padding-left: 1.5em;
+}
+
+#map-column {
+  vertical-align: top;
+  width: 575px;
+  margin: 1em 1px 1em 0em;
+}
+
+#map {
+  height: 500px;
+  width: 573px;
+  border: solid #ccc 1px;
+}
+
+#inner-wrapper {
+  align: left;
+}
+
+#inner-wrapper {
+  width: 100%;
+  overflow: auto;
+}
+
+.documentDescription, #parent-fieldname-text {
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+
+em {
+  font-style: italic;
+}
+
+/* YOUR CSS RULES STOP HERE */
+
+/* </dtml-with> */
+
+/* Latest version of the documentation on pre-defined properties from Plone 
+   can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */
+
+
+/*
+  This file is based on the ploneCustom.css.dtml file shipped with Plone.
+
+  <dtml-with base_properties> (do not remove this)
+  <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
+*/
+
+/* YOUR CSS RULES START HERE */
+
+div.documentByLine {
+  margin-bottom: 1.0em;
+}
+
+a {
+  color: #2575AD;
+  text-decoration: underline;
+}
+
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */
