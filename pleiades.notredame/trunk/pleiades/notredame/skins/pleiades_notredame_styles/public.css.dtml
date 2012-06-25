@@ -16,13 +16,114 @@ a {
   text-decoration: underline;
 }
 
-.PlaceChildItems {
-  margin-top: 0.5em;
+dt.placeChildItem {
+  margin-top: 0.25em;
+  margin-left: 1.0em;
 }
 
-.RatingViewlet {
-  margin-right: 0.5em;
+dt.emptyChildItem {
+  margin-top: 0.25em;
+  margin-left: 1.0em;
+  color: #999;
+}
 
+dd.placeChildItem {
+  margin-left: 2.0em;
+  color: #444;
+}
+
+.placeChildren {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.placeChildrenHeader {
+  margin-top: 0px;
+}
+
+.nameUnattested {
+  text-style: italic;
+}
+
+.createObjectButton {
+  background-color: #FAFAFA;
+  border-color: #D4D4D4 #D4D4D4 #BCBCBC;
+  border-radius: 3px 3px 3px 3px;
+  border-style: solid;
+  border-width: 1px;
+  color: #333;
+  line-height: 2em;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 10px;
+  text-shadow: 0 1px 0 #FFF;
+  white-space: nowrap;
+
+  /* webkit */
+  background-image: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+  /* firefox */
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  background-image: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+  /* ie 6+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#EAEAEA');
+  /* ie8 + */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#EAEAEA')";
+  /* ie10 */
+  background-image: -ms-linear-gradient(#FAFAFA, #EAEAEA);
+  /* opera 11.1 */
+  background-image: -o-linear-gradient(#FAFAFA, #EAEAEA);
+  /* The "standard" */
+  background-image: linear-gradient(#FAFAFA, #EAEAEA);
+}
+
+.createObjectButton:hover {
+  background-color: #79B0D6;
+  border-color: #58A2D6 #58A2D6 #356282;
+  text-shadow: 0 -1px 0 #333;
+  color: #FFF;
+
+  /* webkit */
+  background-image: -webkit-linear-gradient(#79B0D6, #2575AD);
+  /* firefox */
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  background-image: -moz-linear-gradient(#79B0D6, #2575AD);
+  /* ie 6+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#79B0D6', endColorstr='#2575AD');
+  /* ie8 + */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#79B0D6', endColorstr='#2575AD')";
+  /* ie10 */
+  background-image: -ms-linear-gradient(#79B0D6, #2575AD);
+  /* opera 11.1 */
+  background-image: -o-linear-gradient(#79B0D6, #2575AD);
+  /* The "standard" */
+  background-image: linear-gradient(#79B0D6, #2575AD);
+}
+
+a.createObjectButton {
+  text-decoration: none;
+}
+
+a.createObjectButton:visited {
+  color: #333;
+}
+
+a.createObjectButton:hover {
+  color: #FFF;
+}
+
+.ratingViewlet {
+  margin-right: 0.5em;
 }
 
 .AverageRating {
@@ -59,13 +160,14 @@ a {
 
 #map-column {
   vertical-align: top;
-  width: 575px;
+  width: 482px;
   margin: 1em 1px 1em 0em;
+
 }
 
 #map {
-  height: 500px;
-  width: 573px;
+  height: 360px;
+  width: 480px;
   border: solid #ccc 1px;
 }
 
