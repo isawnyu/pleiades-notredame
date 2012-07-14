@@ -70,3 +70,8 @@ dl.portletLogin dd.portletItem {
 dl.portletSearch dd.portletItem, dl#portlet-prefs, dl#portlet-prefs dd.portletItem {
   border: none;
 }
+
+dl.portlet dd.portletItem a.link {
+  color: #2575AD;
+  text-decoration: underline;
+}
