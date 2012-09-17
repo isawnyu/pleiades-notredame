@@ -16,9 +16,9 @@
               type="application/vnd.google-earth.kml+xml"
               tal:condition="request/SearchableText|nothing"
               tal:attributes="href string:$here_url/search_kml?${request/QUERY_STRING}"/>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
     <style>
-    #map { height: 500px; float: right; }
+    #map { height: 600px; float: right; }
     #results { float: left; }
     .hidden { display: none; }
     </style>
@@ -236,7 +236,7 @@ jq(document).ready(setHandlers);
 -->
 </script>
 
-<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
 <script src="search_map.js"></script>
 
 </div>
