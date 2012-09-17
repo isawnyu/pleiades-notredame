@@ -21,6 +21,10 @@
     #map { height: 600px; float: right; }
     #results { float: left; }
     .hidden { display: none; }
+    .leaflet-control-zoom-reset {
+      background-image: url(zoom-reset.png);
+      margin-bottom: 5px; }
+    
     </style>
 
     </metal:block>
