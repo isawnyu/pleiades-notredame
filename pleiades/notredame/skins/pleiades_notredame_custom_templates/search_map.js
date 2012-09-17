@@ -19,14 +19,28 @@ function getJSON(rel) {
 var where = getJSON("where");
 var bounds = where.bbox;
 
-var map = L.map('map').fitBounds([
-  [bounds[1], bounds[0]],
-  [bounds[3], bounds[2]] ]);
+var map = L.map('map', {maxZoom: 12}).fitBounds([
+  [bounds[1]-0.125, bounds[0]-0.125],
+  [bounds[3]+0.125, bounds[2]+0.125] ]);
 
-L.tileLayer(
+var terrain = L.tileLayer(
     'http://api.tiles.mapbox.com/v3/sgillies.map-ac5eaoks/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        }).addTo(map);
+        attribution: "ISAW, 2012"
+        });
+terrain.addTo(map);
+
+/* Not added by default, only through user control action */
+var imperium = L.tileLayer(
+    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
+        attribution: "Johan Ahlfeldt, 2012",
+        minZoom: 5,
+        maxZoom: 11
+        });
+
+L.control.layers({
+    "Pelagios": imperium,
+    "Pleiades (default)": terrain
+    }).addTo(map);
 
 function setupFeature(f) {
   var layer = L.GeoJSON.geometryToLayer(f);
@@ -36,20 +50,12 @@ function setupFeature(f) {
   layer.addTo(map);
   jq("dt#" + f.id + " a").mouseover(
     function() { layer.openPopup(); } );
+  jq("dt#" + f.id + " a").mouseout(
+    function() { layer.closePopup(); } );
 }
 
 for (i=0; i<where.features.length; i++) {
   var f = where.features[i];
   setupFeature(f);
 }
-
-/*L.geoJson(where, {
-    style: function (feature) {
-        return {color: feature.properties.color};
-    },
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.description);
-        jq("#" + feature.properties.link)
-    }
-}).addTo(map);*/
 
