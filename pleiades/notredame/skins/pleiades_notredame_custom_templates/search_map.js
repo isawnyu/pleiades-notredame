@@ -51,7 +51,6 @@ pl_zoom = function (options) {
     return new PLZoom(options);
 };
 
-
 function getJSON(rel) {
   var documentNode = document;
   var linkNode = documentNode.evaluate(
@@ -71,7 +70,6 @@ function getJSON(rel) {
 }
 
 var where = getJSON("where");
-//var bounds = where.bbox;
 var bounds = [
   [where.bbox[1]-0.125, where.bbox[0]-0.125],
   [where.bbox[3]+0.125, where.bbox[2]+0.125] ];
