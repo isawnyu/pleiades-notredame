@@ -90,8 +90,8 @@ var streets = L.tileLayer(
         });
 
 var imperium = L.tileLayer(
-    'http://static.ahlfeldt.se/srtm/imperium/{z}/{x}/{y}.png', {
-        attribution: "Johan Ahlfeldt, 2012",
+    'http://pelagios.dme.ait.ac.at/tilesets/imperium//{z}/{x}/{y}.png', {
+        attribution: 'Tiles: <a href="http://pelagios-project.blogspot.com/2012/09/a-digital-map-of-roman-empire.html">Pelagios</a>, 2012; Data: NASA, OSM, Pleiades, DARMC',
         minZoom: 5,
         maxZoom: 11
         });
