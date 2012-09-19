@@ -376,7 +376,6 @@ margin: 0 0 -1em;
                     <input class="noborder"
                            type="checkbox"
                            name="location_precision:list"
-                           checked="checked"
                            tal:attributes="value python:state[1];
                                            id python:normalizeString(state[1]);" />
                     <label for=""
