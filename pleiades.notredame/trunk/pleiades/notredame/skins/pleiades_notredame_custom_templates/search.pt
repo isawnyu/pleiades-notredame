@@ -22,11 +22,13 @@
     href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
   <style>
     #map { height: 600px; float: right; }
-    #results { float: left; }
+    #resultsContainer { float: left; }
+    #results { max-height: 600px; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
     .hidden { display: none; }
     .leaflet-control-zoom-reset {
       background-image: url(zoom-reset.png);
       margin-bottom: 5px; }
+    dl.searchResults dd { margin-bottom: 0.5em; }
   </style>
   </metal:block>
 
@@ -49,8 +51,6 @@
                  searchterm request/SearchableText|nothing;
                  use_view_action site_properties/typesUseViewActionInListings|python:();
                  search_json nocall:here/@@search-json/data_uri;">
-
-    <p tal:content="structure request"></p>
 
     <form id="searchform" 
           action="search"
@@ -103,7 +103,7 @@
 
     <div tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
-    <p>Ids from this batch <a id="result-batch-ids-visibility" href="#">toggle visibility</a>:</p>
+    <p>Ids from this batch: <a id="result-batch-ids-visibility" href="#">toggle visibility</a></p>
     <textarea id="result-batch-ids" rows="20" style="display:none; width:50%; margin-bottom:1em;" tal:content="python:'\n'.join([str(result.getId) for result in batch])"></textarea>
     <p class="hidden">
       <a href=""
@@ -117,10 +117,11 @@
     <table>
     <tr>
     <td style="width:46%">
-    <div id="results"
+    <div id="resultsContainer" 
           tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
+      <div id="results">
         <dl class="searchResults">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
@@ -202,7 +203,8 @@
         </tal:entry>
         </tal:results>
         </dl>
-         
+        
+        </div>
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
     </div>
