@@ -488,6 +488,15 @@ dl.table-display
     visibility: hidden;
 }
 
+
+i, em {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */
