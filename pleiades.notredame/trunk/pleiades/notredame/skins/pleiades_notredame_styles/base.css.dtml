@@ -426,10 +426,11 @@ blockquote {
 }
 code, tt {
     font-family: Monaco, "Courier New", Courier, monospace;
-    font-size: 1o0%;
+    font-size: 100%;
     color: &dtml-fontColor;;
-    background-color: &dtml-globalBackgroundColor;;
-    padding: 0 0.1em;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid rgb(215, 215, 215);
+    padding: 0 0.2em;
 }
 pre {
     font-family: Monaco, "Courier New", Courier, monospace;
