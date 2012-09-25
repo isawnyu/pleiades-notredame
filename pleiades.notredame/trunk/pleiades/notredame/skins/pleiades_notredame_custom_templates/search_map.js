@@ -54,7 +54,7 @@ pl_zoom = function (options) {
 function getJSON(rel) {
   var documentNode = document;
   var linkNode = documentNode.evaluate(
-      '//a[@rel="' + rel + '" and @type="application/json"]',
+      '//*[@rel="' + rel + '" and @type="application/json"]',
       documentNode,
       null,
       XPathResult.FIRST_ORDERED_NODE_TYPE,
