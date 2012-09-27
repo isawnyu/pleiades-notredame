@@ -1,6 +1,14 @@
 Changes
 =======
 
+0.6.3 (2012-09-27)
+------------------
+- Default to map centered on 35,20 when the parent place is unlocated.
+
+0.6.2 (2012-09-25)
+------------------
+- TODO
+
 0.6.1 (2012-09-20)
 ------------------
 - Add missing em, strong styles to public.css.
