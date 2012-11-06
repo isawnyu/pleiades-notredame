@@ -1,6 +1,10 @@
 Changes
 =======
 
+0.7 (2012-11-05)
+----------------
+- Remove reprPt.py script.
+
 0.6.3 (2012-09-27)
 ------------------
 - Default to map centered on 35,20 when the parent place is unlocated.
