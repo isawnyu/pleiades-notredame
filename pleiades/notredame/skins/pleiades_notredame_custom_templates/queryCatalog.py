@@ -132,6 +132,10 @@ elif 'bbox' in REQUEST.keys() and REQUEST.get('bbox'):
     coords = map(float, REQUEST.get('bbox').split(','))
     query['where'] = {'query': coords, 'range': 'intersection'}
 
+# Alias featureType for getFeatureType
+if 'featureType' in REQUEST.keys():
+    featureType = REQUEST.get('featureType')
+    query['getFeatureType'] = featureType
 
 # doesn't normal call catalog unless some field has been queried
 # against. if you want to call the catalog _regardless_ of whether
