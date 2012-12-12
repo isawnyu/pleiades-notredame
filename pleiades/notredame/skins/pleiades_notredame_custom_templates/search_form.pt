@@ -104,10 +104,10 @@ margin: 0 0 -1em;
 
 
             <div class="field">
-                <label for="Subject" i18n:translate="label_categories">Categories</label>
+                <label for="Subject" i18n:translate="label_categories">Subjects</label>
 
                 <div class="formHelp" i18n:translate="help_search_categories">
-                Return items matching some or all of these Categories.
+                Return items matching some or all of these Subjects (or tags).
                 Multiple words may be found by pressing <strong>Ctrl</strong>
                 (or <strong>Apple</strong> key on Mac) while clicking the
                 keywords.
@@ -153,10 +153,10 @@ margin: 0 0 -1em;
             </div>
 
             <div class="field">
-                <label for="getFeatureType" i18n:translate="label_featureTypes">Feature Types</label>
+                <label for="getFeatureType" i18n:translate="label_featureTypes">Feature Categories</label>
 
                 <div class="formHelp" i18n:translate="help_search_featureTypes">
-                Return items matching some or all of these Feature Types.
+                Return items matching some or all of these Feature Categories (formerly feature types).
                 Multiple types may be found by pressing <strong>Ctrl</strong>
                 (or <strong>Apple</strong> key on Mac) while clicking the
                 keywords.

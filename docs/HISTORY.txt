@@ -1,6 +1,11 @@
 Changes
 =======
 
+0.7.1 (2012-12-11)
+------------------
+- Better labels for the search form and no more portal_type defaulting to 
+  Place, Location, and Name.
+
 0.7 (2012-11-05)
 ----------------
 - Remove reprPt.py script.
