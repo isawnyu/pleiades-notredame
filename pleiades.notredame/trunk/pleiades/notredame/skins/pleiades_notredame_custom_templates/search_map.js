@@ -54,7 +54,7 @@ pl_zoom = function (options) {
 function getJSON(rel) {
   var documentNode = document;
   var linkNode = documentNode.evaluate(
-      '//*[@rel="' + rel + '" and @type="application/json"]',
+      '//a[@rel="' + rel + '" and @type="application/json"]',
       documentNode,
       null,
       XPathResult.FIRST_ORDERED_NODE_TYPE,
@@ -91,7 +91,7 @@ var streets = L.tileLayer(
 
 var imperium = L.tileLayer(
     'http://pelagios.dme.ait.ac.at/tilesets/imperium//{z}/{x}/{y}.png', {
-        attribution: 'Tiles: <a href="http://pelagios-project.blogspot.com/2012/09/a-digital-map-of-roman-empire.html">Pelagios</a>, 2012; Data: NASA, OSM, Pleiades, DARMC',
+        attribution: 'Tiles: <a href="http://pelagios.dme.ait.ac.at/maps/greco-roman/about.html">Pelagios</a>, 2012; Data: NASA, OSM, Pleiades, DARMC',
         minZoom: 5,
         maxZoom: 11
         });
