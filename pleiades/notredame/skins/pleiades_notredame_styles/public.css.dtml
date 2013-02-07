@@ -122,7 +122,32 @@ a.createObjectButton:hover {
   color: #FFF;
 }
 
-.ratingViewlet {
+span.createObjectButton a {
+  text-decoration: none;
+}
+
+span.createObjectButton:visited a {
+  color: #333;
+}
+
+span.createObjectButton:hover a {
+  color: #FFF;
+}
+
+span.formButton {
+  margin-left: 0.5em;
+  border-left: solid #999 1px;
+  padding-left: 0.5em;
+}
+
+div.createLocationForm {
+  margin-top: 0.5em;
+  border: solid #999 1px;
+  padding: 0.5em;
+  box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.31);
+}
+
+a.ratingViewlet {
   margin-right: 0.5em;
 }
 
