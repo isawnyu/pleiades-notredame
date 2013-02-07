@@ -73,6 +73,16 @@ def rootAtNavigationRoot(query):
 
 addSearchableTextWildcard=False
 
+# Alias 'q' for 'SearchableText'
+v = REQUEST.get('q')
+if v and not REQUEST.get('SearchableText'):
+    REQUEST.set('SearchableText', v)
+
+# Alias 'featCat' for 'getFeatureType'
+v = REQUEST.get('featCat')
+if v and not REQUEST.get('getFeatureType'):
+    REQUEST.set('getFeatureType', v)
+
 # Avoid creating a session implicitly.
 for k in REQUEST.keys():
     if k in ('SESSION',):
@@ -131,11 +141,6 @@ if 'lowerLeft' in REQUEST.keys() and REQUEST.get('lowerLeft'):
 elif 'bbox' in REQUEST.keys() and REQUEST.get('bbox'):
     coords = map(float, REQUEST.get('bbox').split(','))
     query['where'] = {'query': coords, 'range': 'intersection'}
-
-# Alias featureType for getFeatureType
-if 'featureType' in REQUEST.keys():
-    featureType = REQUEST.get('featureType')
-    query['getFeatureType'] = featureType
 
 # doesn't normal call catalog unless some field has been queried
 # against. if you want to call the catalog _regardless_ of whether
