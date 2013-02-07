@@ -1,6 +1,10 @@
 Changes
 =======
 
+Next
+----
+- Add aliases (q/SearchableText, featCat/getFeatureType) to queryCatalog.py.
+
 0.7.1 (2012-12-11)
 ------------------
 - Better labels for the search form and no more portal_type defaulting to 
