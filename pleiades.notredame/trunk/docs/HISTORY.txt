@@ -4,6 +4,7 @@ Changes
 Next
 ----
 - Add aliases (q/SearchableText, featCat/getFeatureType) to queryCatalog.py.
+- Custom referencebrowser.pt, dodging unauthorized refs[0] exception.
 
 0.7.2 (2013-02-06)
 ------------------
