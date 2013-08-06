@@ -42,7 +42,7 @@ dd.placeChildItem {
 }
 
 .nameUnattested {
-  text-style: italic;
+  font-style: italic;
 }
 
 .createObjectButton {
