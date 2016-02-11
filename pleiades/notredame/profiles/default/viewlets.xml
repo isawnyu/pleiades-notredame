@@ -14,7 +14,6 @@
  </order>
   
  <hidden manager="plone.portaltop" skinname="Notre Dame">
-  <viewlet name="plone.path_bar"/>
   <viewlet name="plone.header"/>
  </hidden>
  <hidden manager="plone.portalheader" skinname="Notre Dame">
@@ -22,5 +21,8 @@
   <viewlet name="plone.personal_bar"/>
   <viewlet name="plone.searchbox"/>
   <viewlet name="plone.skip_links"/>
+ </hidden>
+ <hidden manager="plone.abovecontent" skinname="Notre Dame">
+  <viewlet name="plone.path_bar"/>
  </hidden>
 </object>

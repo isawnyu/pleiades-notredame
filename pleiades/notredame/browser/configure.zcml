@@ -13,15 +13,6 @@
         name="Notre Dame"
         />
 
-    <browser:page
-        for="*"
-        name="manage-viewlets"
-        class="plone.app.viewletmanager.manager.ManageViewlets"
-        template="templates/manage-viewlets.pt"
-        permission="cmf.ManagePortal"
-        layer=".interfaces.IPlonethemeNotredameLayer"
-        />
-
     <!-- Viewlets registration -->
     <browser:viewlet
         name="plone.personal_bar"

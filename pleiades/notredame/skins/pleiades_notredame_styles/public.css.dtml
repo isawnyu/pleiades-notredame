@@ -7,19 +7,15 @@
 
 /* YOUR CSS RULES START HERE */
 
-div.documentByLine {
-  margin-bottom: 1.0em;
-}
-
-a {
-  color: #2575AD;
-  text-decoration: underline;
+.field {
+   clear: none !important;
 }
 
 dt.placeChildItem {
   margin-top: 0.25em;
   margin-left: 1.0em;
 }
+
 
 dt.emptyChildItem {
   margin-top: 0.25em;
@@ -39,6 +35,19 @@ dd.placeChildItem {
 
 .placeChildrenHeader {
   margin-top: 0px;
+}
+
+.field ul {
+   list-style-position: outside;
+   margin: 0;
+   padding: 0;
+   margin-left: 1.25em;
+}
+
+
+.field ul > li {
+   margin: 0;
+   padding: 0;
 }
 
 .nameUnattested {
@@ -190,6 +199,12 @@ a.ratingViewlet {
 
 }
 
+#map-block {
+   width: 482px;
+   margin: 1px 0em 1em 1em;
+   float:right;
+}
+
 #map {
   height: 360px;
   width: 480px;
@@ -235,9 +250,33 @@ div.documentByLine {
   margin-bottom: 1.0em;
 }
 
+#category {
+background: #e8f0dc;
+padding: 0.25em;
+}
+
 a {
   color: #2575AD;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+   text-decoration: underline;
+}
+
+#locationsField > label::before {
+content: url(http://pleiades.stoa.org/images/pmapi/21/location-blue.png);
+position: relative;
+top: 0.5em;
+margin-right: 3px;
+}
+
+#archetypes-fieldname-connections > label::before,
+#archetypes-fieldname-connections_from > label::before {
+content: url(http://pleiades.stoa.org/images/pmapi/21/connection-green.png);
+position: relative;
+top: 0.5em;
+margin-right: 3px;
 }
 
 /* YOUR CSS RULES STOP HERE */
@@ -246,5 +285,3 @@ a {
 
 /* Latest version of the documentation on pre-defined properties from Plone 
    can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */
-
-
