@@ -55,10 +55,9 @@ ul, ol {
   line-height: 1.5em;
 }
 
-#portal-column-content .visualPadding {
-  padding-left: 3%;
-  padding-right: 3%;
-  width: 94%;
+#content {
+  padding: 1em 3%;
+  clear: both;
 }
 
 table.listing {

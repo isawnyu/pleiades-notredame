@@ -123,7 +123,6 @@
                      Status message
                     </div>
 
-                    <div class="visualPadding">
                     <metal:slot define-slot="body">
                         <div id="content">
 
@@ -166,7 +165,6 @@
                             </metal:bodytext>
                         </div>
                     </metal:slot>
-                    </div>
 
                     <metal:sub define-slot="sub" tal:content="nothing">
                        This slot is here for backwards compatibility only.
