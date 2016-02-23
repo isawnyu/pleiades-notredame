@@ -74,33 +74,40 @@ var bounds = [
   [where.bbox[1]-0.125, where.bbox[0]-0.125],
   [where.bbox[3]+0.125, where.bbox[2]+0.125] ];
 
-var map = L.map('map', {maxZoom: 12, zoomControl: false}).fitBounds(bounds);
+var map = L.map('map', {maxZoom: 12, zoomControl: false, attributionControl: false}).fitBounds(bounds);
+L.control.attribution({prefix: false}).addTo(map);
 pl_zoom({initialBounds: bounds}).addTo(map);
 
-var terrain = L.tileLayer(
-    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
-        attribution: "ISAW, 2012"
+var awmcterrain = L.tileLayer(
+    'http://api.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png', {
+        attribution: 'Powered by <a href="http://leaflet.cloudmade.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base by <a title="Ancient World Mapping Center (UNC-CH)" href="http://awmc.unc.edu">AWMC</a>, 2014 (cc-by-nc).'
         });
-terrain.addTo(map);
+awmcterrain.addTo(map);
 
 /* Not added by default, only through user control action */
+var terrain = L.tileLayer(
+    'http://api.tiles.mapbox.com/v3/isawnyu.map-p75u7mnj/{z}/{x}/{y}.png', {
+        attribution: 'Powered by <a href="http://leaflet.cloudmade.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base by <a title="Institute for the Study of the Ancient World (ISAW)" href="http://isaw.nyu.edu">ISAW</a>, 2014 (cc-by).'
+        });
+
 var streets = L.tileLayer(
     'http://api.tiles.mapbox.com/v3/isawnyu.map-zr78g89o/{z}/{x}/{y}.png', {
-        attribution: "ISAW, 2012"
+        attribution: 'Powered by <a href="http://leaflet.cloudmade.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base by <a title="Institute for the Study of the Ancient World (ISAW)" href="http://isaw.nyu.edu">ISAW</a>, 2014 (cc-by).'
         });
 
 var imperium = L.tileLayer(
     'http://pelagios.dme.ait.ac.at/tilesets/imperium//{z}/{x}/{y}.png', {
-        attribution: 'Tiles: <a href="http://pelagios.dme.ait.ac.at/maps/greco-roman/about.html">Pelagios</a>, 2012; Data: NASA, OSM, Pleiades, DARMC',
-        minZoom: 5,
+        attribution: 'Powered by <a href="http://leaflet.cloudmade.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base: <a href="http://pelagios.dme.ait.ac.at/maps/greco-roman/about.html">Pelagios</a>, 2012; Data: NASA, OSM, Pleiades, DARMC (cc-by).',
         maxZoom: 11
         });
 
 L.control.layers({
-    "Terrain (default)": terrain,
-    "Streets": streets,
-    "Imperium": imperium,
+    "Ancient Terrain (default)": awmcterrain,
+    "Modern Terrain": terrain,
+    "Modern Streets": streets,
+    "Roman Empire": imperium,
     }).addTo(map);
+
 
 function setupFeature(f) {
   var layer = L.GeoJSON.geometryToLayer(f);
@@ -118,4 +125,3 @@ for (i=0; i<where.features.length; i++) {
   var f = where.features[i];
   setupFeature(f);
 }
-

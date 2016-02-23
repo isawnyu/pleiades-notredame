@@ -8,66 +8,157 @@
 
   <div metal:fill-slot="main">
 
-      <div id="portal-breadcrumbs">
+    <div id="portal-breadcrumbs">
 
-    <span id="breadcrumbs-you-are-here">You
-are here:</span>
-    <a href="http://pleiades.stoa.org/home">Home</a>
-    <span class="breadcrumbSeparator">
-        &rarr;
-        
-    </span>
-    <span dir="ltr">
-        
-            <span>Credits</span>
-         
-    </span>
+      <span id="breadcrumbs-you-are-here">
+        You are here:
+      </span>
+      <a href="http://pleiades.stoa.org/home">Home</a>
+      <span class="breadcrumbSeparator">&rarr;</span>
+      <span dir="ltr">
+        <span>Credits</span>
+      </span>
 
+    </div>
+
+    <h1>Credits</h1>
+
+    <p>
+      Pleiades is a joint project of the <a title="AWMC" href="http://www.unc.edu/awmc/">Ancient World Mapping Center</a>,
+      the <a title="Stoa" href="http://www.stoa.org/">Stoa Consortium</a>, and the
+      <a title="ISAW" href="http://www.nyu.edu/isaw/">Institute for the Study of the Ancient World</a>. Copyrights on 
+      software and content are held by the participating institutions and by the
+      <a href="/credits#credits-list">individual contributors listed below</a>. Using, sharing, and remixing of the content
+      is permitted under terms of the
+      <a class="external-link" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
+      License (cc-by)</a>.
+    </p>
+
+    <p>
+      <strong>Senior Editors:</strong>
+      <a href="/author/rbagnall">Roger Bagnall</a>,
+      <a href="/author/rtalbert">Richard Talbert</a>
+      <br />
+
+      <strong>Managing Editors:</strong>
+      <a href="/author/thomase">Tom Elliott</a>,
+      <a href="/author/gmoss">Gabe Moss</a>
+      <br />
+
+      <strong>Associate Editors:</strong>
+      <a href="/author/jbecker">Jeffrey Becker</a>,
+      <a href="/author/sbond">Sarah Bond</a>,
+      <a href="/author/sgillies">Sean Gillies</a>,
+      <a href="/author/rmhorne">Ryan Horne</a>,
+      <a href="/author/arabinowitz">Adam Rabinowitz</a>,
+      <a href="/author/erobinson">Elizabeth Robinson</a>,
+      <a href="/author/bdturner">Brian Turner</a>
+      <br />
+
+      <strong>Reviewers:</strong>
+      <a href="/author/scosta">Stefano Costa</a>,
+      <a href="/author/adgraauw">Arthur De Graauw</a>,
+      <a href="/author/sdunn">Stuart Dunn</a>,
+      <a href="/author/nkaye">Noah Kaye</a>,
+      <a href="/author/sarcanon">Scott Vanderbilt</a>
+    </p>
+
+    <p>The Pleiades community is grateful to the following individuals who previously served as members of the editorial college: <a href="/author/mccormick">Michael McCormick</a>, <a href="/author/rosst">Ross Twele</a>.</p>
+    <p>We are also grateful to the following individuals who previously served as reviewers: <a href="/author/pscalfano">Perry Scalfano</a>.</p>
+    
+    <h2>Individual Contributions</h2>
+    
+    <p>The following individuals have contributed their time and talent to expanding and enhancing the content of Pleiades.</p>
+
+    <div id="sort-actions">
+      <p>
+        sort by:
+        <a id="sort-name" href="#" style="font-weight: bold;">name</a>
+        |
+        <a id="sort-count" href="#">contribution</a>
+        |
+        <a id="sort-roles" href="#">role</a>
+        |
+        <a id="sort-date" href="#">date</a>
+      </p>
+    </div>
+
+    <div id="credits-list">
+      <div class="credit-record" tal:repeat="record here/getCredits">
+        <img tal:attributes="src record/portrait" alt="" class="portraitPhoto" width="75" style="float: left; margin-right: 1em; margin-bottom: 1em; vertical-align: top;">
+        <a rel="nofollow" tal:attributes="href string:/author/${record/username}">
+          <h4 class="credit-name" tal:content="record/fullname">Full name</h4>
+        </a>
+        <p>
+          <span class="credit-roles" tal:content="record/roles">Roles</span>
+          since
+          <span tal:content="record/start_date">Start</span>
+          .
+          <a rel="nofollow" tal:attributes="href string:/search?Creator=${record/username}">
+            <span tal:content="record/authored">Count</span>
+            additions
+          </a>
+          ,
+          <a rel="nofollow" tal:attributes="href string:/search?Contributors=${record/username}">
+            <span tal:content="record/contributed">Count</span>
+            other contributions
+          </a>
+          <span class="credit-count" style="display:none;" tal:content="record/count">Count</span>
+          <span class="credit-date" style="display:none;" tal:content="record/start">Start</span>
+        </p>
+        <div class="visualClear"></div>
+      </div>
+    </div>
+
+<div>
+<p>Funding for the creation of this on-going digital publication has been provided by the participating institutions, 
+      and by grants (2006-2014) from the U.S.
+      <a href="http://www.neh.gov">National Endowment for the Humanities</a>.
+    </p>
+
+    <p>Pleiades incorporates content from the following works:</p> 
+    <ul>
+      <li>Michael McCormick, Guoping Huang, Kelly Gibson et al. (ed.) <em>Digital Atlas of Roman and Medieval 
+      Civilizations,</em> Harvard University Center for Geographic Analysis:
+      <a href="http://darmc.harvard.edu/">http://darmc.harvard.edu</a>.</li>
+      <li>Richard Talbert (ed.), <em>Barrington Atlas of the Greek and Roman World,</em> Princeton, 2000.</li>
+    </ul>
+
+    <p>The website theme is adapted from
+      <a href="http://plone.org/products/plonetheme-notredame">plonetheme.notredame</a>
+      by
+      <a class="external-link" href="http://plone.org/author/daftdog">Christian Schneider</a>.
+    </p>
+
+    <p>The banner image of the 
+      <a href="http://en.wikipedia.org/wiki/Nereid_Monument">Nereid Monument</a>
+      is adapted from a photo by
+      <a href="http://www.flickr.com/photos/jikamajoja/796816947/">jikamajoja</a>. The home page also uses images from
+      <a class="external-link" href="http://en.wikipedia.org/wiki/File:Mosaique_du_Nil_(palais_Barberini).JPG">Wikipedia</a>,
+      <a class="external-link" href="http://www.flickr.com/photos/dandiffendale/2344521696/in/pool-1282398@N20/">Dan Diffendale (on Flickr)</a>, and NYU's
+      <a class="external-link" href="http://www.flickr.com/photos/isawnyu/4727178977/in/set-72157624340575014/">Ancient World Image Bank (on Flickr)</a>.
+    </p>
+
+    <p>The dynamic maps found throughout the website were designed and coded by Sean Gillies and Tom Elliott using the 
+      <a href="http://leafletjs.com/">Leaflet Javascript map library</a>. User-selectable terrain layers are provided, including:</p>
+    <ul>
+      <li>"Ancient terrain (default)" (2014) by Ryan Horne, et al. for AWMC. See further: 
+        <a href="http://awmc.unc.edu/wordpress/tiles/map-tile-information">AWMC Map Tiles</a>.</li>
+      <li>"Modern terrain" and "Modern Streets" (2012) by Sean Gillies for ISAW</li>
+      <li>"Roman Empire" (2012) by Johan &Aring;hlfeldt for the <a href="http://pelagios-project.blogspot.com/">Pelagios Project</a>. See further: 
+        <a href="http://pelagios.dme.ait.ac.at/maps/greco-roman/about.html">About the Digital Map of the Roman Empire</a>.</li>
+    </ul>
+    <p>The AWMC and ISAW map bases are served to the web via <a href="https://www.mapbox.com/">Mapbox.com</a>; funding provided by ISAW.</p>
+
+    <p>
+      The presentation of credits on this page is intended to conform to the emerging best practice in digital humanities projects as reflected in the draft
+      <a class="external-link" href="http://mediacommons.futureofthebook.org/mcpress/offthetracks/part-one-models-for-collaboration-career-paths-acquiring-institutional-support-and-transformation-in-the-field/a-collaboration/collaborators%E2%80%99-bill-of-rights/">Collaborators' Bill of Rights</a>
+      and the
+      <a href="http://faircite.wordpress.com/">Fair Cite Initiative</a>.
+    </p>
 </div>
 
-<h1>Credits</h1>
-<p>Pleiades is a joint project of the
-<a title="AWMC" href="http://www.unc.edu/awmc/">Ancient World Mapping Center</a>,
-the <a title="Stoa" href="http://www.stoa.org/">Stoa Consortium</a>,
-and the <a title="ISAW" href="http://www.nyu.edu/isaw/">Institute for the Study of the Ancient World</a>. Copyrights on software and content are held by the participating institutions and by the <a href="/credits#credits-list">individual contributors listed below</a>. Using, sharing, and remixing of the content is permitted under
- terms of the 
-<a class="external-link" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 License (cc-by)</a>.</p>
-<p><strong>Senior Editors:</strong> <a href="/author/rbagnall">Roger Bagnall</a>, <a href="/author/rtalbert">Richard Talbert</a><br />
-<strong>Managing Editors:</strong> <a href="/author/jbecker">Jeffrey Becker</a>, <a href="/author/thomase">Tom Elliott</a>, <a href="/author/sgillies">Sean Gillies</a><br />
-<strong>Associate Editors:</strong> <a href="/author/mccormick">Michael McCormick</a>, <a href="/author/bdturner">Brian Turner</a><br />
-<strong>Reviewers:</strong> <a href="/author/sdunn">Stuart Dunn</a>, <a href="/author/leifuss">Leif Isaksen</a>, <a href="/author/sarcanon">Scott Vanderbilt</a></p>
-<p>Funding for the creation of this on-going digital publication has been provided by the participating institutions, and by grants from the 
-U.S. <a href="http://www.neh.gov">National Endowment for the Humanities</a>.</p>
-<p>Pleiades incorporates coordinates from Michael McCormick, Guoping Huang, Kelly Gibson et 
-al. (ed.), <em>Digital Atlas of Roman and Medieval Civilizations,</em> Harvard 
-University Center for Geographic Analysis: <a href="http://darmc.harvard.edu/">http://darmc.harvard.edu.</a></p>
-<p>The website theme is adapted from <a href="http://plone.org/products/plonetheme-notredame">plonetheme.notredame</a> by <a class="external-link" href="http://plone.org/author/daftdog">Christian Schneider</a>.</p>
-<p>The banner image of the <a href="http://en.wikipedia.org/wiki/Nereid_Monument">Nereid
- Monument</a> is adapted from a photo by <a href="http://www.flickr.com/photos/jikamajoja/796816947/">jikamajoja</a>. The front page also uses images from <a class="external-link" href="http://en.wikipedia.org/wiki/File:Mosaique_du_Nil_(palais_Barberini).JPG">Wikipedia</a>, <a class="external-link" href="http://www.flickr.com/photos/dandiffendale/2344521696/in/pool-1282398@N20/">Dan Diffendale (on Flickr)</a>, and NYU's <a class="external-link" href="http://www.flickr.com/photos/isawnyu/4727178977/in/set-72157624340575014/">Ancient World Image Bank (on Flickr)</a>.</p>
-<p>The presentation of credits on this page is intended to conform to the emerging best practice in digital humanities projects as reflected in the draft
-<a class="external-link" href="http://mediacommons.futureofthebook.org/mcpress/offthetracks/part-one-models-for-collaboration-career-paths-acquiring-institutional-support-and-transformation-in-the-field/a-collaboration/collaborators%E2%80%99-bill-of-rights/">Collaborators' Bill of Rights</a>
-and the <a href="http://faircite.wordpress.com/">Fair Cite Initiative</a>.</p>
-<h2>Individual Credits</h2>
-<p>The following individuals have contributed their time and talent to expanding and enhancing 
-the content of Pleiades.</p>
-<div id="sort-actions"><p>sort by: <a id="sort-name" href="#" style="font-weight: bold;">name</a> | <a id="sort-count" href="#">contribution</a>
- | <a id="sort-roles" href="#">role</a> | <a id="sort-date" href="#">date</a></p></div>
-
-<div id="credits-list">
-<div class="credit-record" tal:repeat="record here/getCredits">
- <img tal:attributes="src record/portrait" alt="" class="portraitPhoto" width="75" style="float: left; margin-right: 1em; margin-bottom: 1em; vertical-align: top;">
- <a rel="nofollow" tal:attributes="href string:/author/${record/username}"><h4 class="credit-name" tal:content="record/fullname">Full name</h4></a>
- <p><span class="credit-roles" tal:content="record/roles">Roles</span> since <span tal:content="record/start_date">Start</span>.
- <a rel="nofollow" tal:attributes="href string:/search?Creator=${record/username}"><span tal:content="record/authored">Count</span> additions</a>,
- <a rel="nofollow" tal:attributes="href string:/search?Contributors=${record/username}"><span tal:content="record/contributed">Count</span> other contributions</a>
- <span class="credit-count" style="display:none;" tal:content="record/count">Count</span>
- <span class="credit-date" style="display:none;" tal:content="record/start">Start</span>
-</p>
- <div class="visualClear"></div>
-</div>
-</div>
-
-<script type="text/javascript">
+    <script type="text/javascript">
 <!--
 
   function sortCredits(key) {
@@ -156,5 +247,5 @@ the content of Pleiades.</p>
 </script>
   </div>
 
-</html>
 
+</html>

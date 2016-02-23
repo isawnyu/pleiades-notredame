@@ -1,0 +1,9 @@
+<div id="portal-footer" metal:define-macro="portal_footer" i18n:domain="plone">
+
+<p>
+Copyright © Ancient World Mapping Center and Institute for the Study of the Ancient World. 
+Sharing and remixing permitted under terms of the Creative Commons Attribution 3.0 License (cc-by).
+Please see our <a href="http://pleiades.stoa.org/credits">credits</a>.
+</p>
+
+</div>

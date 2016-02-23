@@ -136,7 +136,7 @@
                                  class string:$item_wf_state_class"
                  tal:content="result/pretty_title_or_id" />
                <span tal:condition="python:result_type in ['Name', 'Location']" tal:define="parent python:here.getParentBrain(result)">(of 
-               <a href="#" tal:attributes="href parent/getURL"><span tal:replace="parent/Title">Foo</span></a>)</span>
+               <a href="#" tal:attributes="href parent/getURL" tal:on-error="string: #error"><span tal:replace="parent/Title" tal:on-error="string: Failed to look up parent URL!">Foo</span></a>)</span>
             </dt>
             
             <dd>
@@ -253,4 +253,3 @@ jq(document).ready(setHandlers);
 
 </body>
 </html>
-

@@ -26,6 +26,7 @@ setup(name='pleiades.notredame',
       install_requires=[
           'setuptools',
           'plone.browserlayer',
+          'z3c.jbot',
       ],
       entry_points="""
       # -*- Entry points: -*-

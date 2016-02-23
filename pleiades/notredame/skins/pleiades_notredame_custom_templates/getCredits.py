@@ -10,6 +10,8 @@
 import DateTime
 from Products.CMFCore.utils import getToolByName
 
+fake_users = ['auser', 'juser']
+
 catalog = getToolByName(context, 'portal_catalog')
 mtool = getToolByName(context, 'portal_membership')
 
@@ -26,6 +28,8 @@ data = {}
 
 for user in filter(lambda x: x is not None, map(mtool.getMemberById, contributors)):
     username = user.getUserName()
+    if username in fake_users:
+        continue
     a = len(catalog(Contributors=username, review_state="published"))
     b = len(catalog(Creator=username, review_state="published"))
     if a > 0 or b > 0:
@@ -36,9 +40,13 @@ for user in filter(lambda x: x is not None, map(mtool.getMemberById, contributor
                 roles.remove(r)
         roles.append('Member')
         roles = ", ".join(roles[~2:~0]) + "; "*bool(len(roles)-1) + roles[-1]
-        creation_date = context.restrictedTraverse("/plone/Members/" + username).CreationDate()
-        start = DateTime.DateTime(creation_date)
-        start_date = "%s %s %s" % (start.day(), start.Month(), start.year())
+        try:
+            creation_date = context.restrictedTraverse("/plone/Members/" + username).CreationDate()
+            start = DateTime.DateTime(creation_date)
+            start_date = "%s %s %s" % (start.day(), start.Month(), start.year())
+        except:
+            creation_date = ""
+            start_date = ""
         data[fullname] = {
             'fullname': fullname,
             'username': username,
@@ -53,4 +61,3 @@ for user in filter(lambda x: x is not None, map(mtool.getMemberById, contributor
 keys = data.keys()
 keys.sort()
 return [data[k] for k in keys]
-

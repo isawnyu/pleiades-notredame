@@ -5,6 +5,7 @@
     i18n_domain="pleiades.notredame">
 
     <include package="plone.app.portlets" />
+    <include package="z3c.jbot" file="meta.zcml" />
         
     <!-- 'Notre Dame' Zope 3 browser layer -->
     <interface
@@ -19,6 +20,7 @@
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+        template="templates/personal_bar.pt"
         permission="zope.Public"
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
@@ -81,5 +83,10 @@
         directory="templates"
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
+
+    <!-- z3c.jbot overrides -->
+    <browser:jbot
+        directory="template_overrides"
+        layer=".interfaces.IPlonethemeNotredameLayer" />
 
 </configure>
