@@ -24,6 +24,12 @@ body#content.kupu {
 
 /* Editable border */
 
+#edit-bar:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .contentViews {
   background-color: transparent;
   line-height: normal;
