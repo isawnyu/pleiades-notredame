@@ -62,7 +62,7 @@ function getJSON(rel) {
   if (linkNode != null) {
     var uri = linkNode.getAttribute("href");
     var json = unescape(uri.split(',').pop());
-    return jq.parseJSON(json);
+    return JSON.parse(json);
   }
   else {
     return null;
@@ -115,9 +115,9 @@ function setupFeature(f) {
     '<dt><a href="' + f.properties.link + '">' + f.properties.title + '</a></dt>'
     + '<dd>' + f.properties.description + '</dd>' );
   layer.addTo(map);
-  jq("dt#" + f.id + " a").mouseover(
+  jQuery("dt#" + f.id + " a").mouseover(
     function() { layer.openPopup(); } );
-  jq("dt#" + f.id + " a").mouseout(
+  jQuery("dt#" + f.id + " a").mouseout(
     function() { layer.closePopup(); } );
 }
 

@@ -14,6 +14,16 @@
         name="Notre Dame"
         />
 
+    <!-- Views -->
+    <browser:page
+        name="search"
+        class=".search.PleiadesSearch"
+        permission="zope2.View"
+        for="*"
+        template="templates/search.pt"
+        layer=".interfaces.IPlonethemeNotredameLayer"
+        />
+
     <!-- Viewlets registration -->
     <browser:viewlet
         name="plone.personal_bar"

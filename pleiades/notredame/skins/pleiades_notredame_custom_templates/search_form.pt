@@ -41,7 +41,10 @@ margin: 0 0 -1em;
           class="enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection"
           method="get"
           name="search"
-          tal:define="DateTime python:modules['DateTime'].DateTime">
+          tal:define="DateTime python:modules['DateTime'].DateTime;
+                      normalizeString nocall:context/@@plone/normalizeString;
+                      isAnon context/@@plone_portal_state/anonymous;
+                      member context/@@plone_portal_state/member;">
 
         <fieldset id="fieldset-basic">
 
@@ -215,7 +218,7 @@ margin: 0 0 -1em;
                 Return items created by a particular person (username).
                 </div>
     
-                <tal:creators tal:define="creators python:portal.portal_catalog.uniqueValuesFor('Creator')">
+                <tal:creators tal:define="creators python:context.portal_catalog.uniqueValuesFor('Creator')">
                     <select name="Creator"
                             id="Creator"
                             tal:condition="python: len(creators) &lt;= 30">
@@ -368,7 +371,7 @@ margin: 0 0 -1em;
                 </div>
     
                 <tal:states define="
-                                navtree_props portal_properties/navtree_properties;
+                                navtree_props nocall:context/portal_properties/navtree_properties;
                                 states          python:[(None, 'precise'), (None, 'rough')];
                                 state_lists     python: here.createMultiColumnList(states, numCols=1, sort_on='self');"
                             repeat="sublist state_lists">
@@ -423,7 +426,7 @@ margin: 0 0 -1em;
                 <input type="hidden" name="created_usage" value="range:min" />
             </div>
     
-            <div class="field" tal:define="portal_types portal/portal_types;">
+            <div class="field" tal:define="portal_types nocall:context/portal_types;">
                 <label i18n:translate="label_item_type">Item type</label>
 
                 <div class="formHelp" i18n:translate="help_search_item_type">
@@ -445,7 +448,7 @@ margin: 0 0 -1em;
                 </span>
                 <br />
                 <div style="float:left; margin-right: 2em;"
-                     tal:define="allTypes python:putils.getUserFriendlyTypes();
+                     tal:define="allTypes context/plone_utils/getUserFriendlyTypes;
                              typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
                      tal:repeat="sublist typeLists">
                     <tal:items repeat="type sublist">
@@ -493,8 +496,8 @@ margin: 0 0 -1em;
                 </span>
 
                 <tal:states define="
-                                navtree_props portal_properties/navtree_properties;
-                                states          python:wtool.listWFStatesByTitle(filter_similar=1);
+                                navtree_props nocall:context/portal_properties/navtree_properties;
+                                states          python:context.portal_workflow.listWFStatesByTitle(filter_similar=1);
                                 state_lists     python: here.createMultiColumnList(states, numCols=1, sort_on='self');"
                             repeat="sublist state_lists">
                     <tal:items repeat="state sublist">

@@ -83,6 +83,8 @@ v = REQUEST.get('featCat')
 if v and not REQUEST.get('getFeatureType'):
     REQUEST.set('getFeatureType', v)
 
+addSearchableTextWildcard = True
+
 # Avoid creating a session implicitly.
 for k in REQUEST.keys():
     if k in ('SESSION',):
@@ -90,8 +92,8 @@ for k in REQUEST.keys():
     v = REQUEST.get(k)
 
     # If called from search template, but not from search_form
-    if k in ('submit') and v == "Search":
-        addSearchableTextWildcard=True
+    if k in ('submit') and v == "Advanced Search":
+        addSearchableTextWildcard = False
 
     if v and k in indexes:
         if k in quote_logic_indexes:

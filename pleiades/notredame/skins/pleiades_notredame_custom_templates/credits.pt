@@ -159,91 +159,91 @@
 </div>
 
     <script type="text/javascript">
-<!--
+(function($) {
 
   function sortCredits(key) {
-    var list = jq('div#credits-list');
+    var list = $('div#credits-list');
     var items = list.children('div.credit-record');
     items.sort(function(a, b) {
-      var compA = jq('.credit-' + key, jq(a)).text();
-      var compB = jq('.credit-' + key, jq(b)).text();
+      var compA = $('.credit-' + key, $(a)).text();
+      var compB = $('.credit-' + key, $(b)).text();
       return (compA > compB) ? 1 : (compA < compB) ? -1 : 0;
     });
-    jq.each(items, function(idx, itm) { list.append(itm); });
+    $.each(items, function(idx, itm) { list.append(itm); });
   }
 
   function sortCreditsCount() {
-    var list = jq('div#credits-list');
+    var list = $('div#credits-list');
     var items = list.children('div.credit-record');
     items.sort(function(a, b) {
-      var compA = parseInt(jq('.credit-count', jq(a)).text());
-      var compB = parseInt(jq('.credit-count', jq(b)).text());
+      var compA = parseInt($('.credit-count', $(a)).text());
+      var compB = parseInt($('.credit-count', $(b)).text());
       return (compA < compB) ? 1 : (compA > compB) ? -1 : 0;
     });
-    jq.each(items, function(idx, itm) { list.append(itm); });
+    $.each(items, function(idx, itm) { list.append(itm); });
   }
 
   function reverseCredits() {
-    var list = jq('div#credits-list');
+    var list = $('div#credits-list');
     var items = list.children('div.credit-record');
-    var arr = jq.makeArray(items);
+    var arr = $.makeArray(items);
     arr.reverse();
-    jq.each(arr, function(idx, itm) { list.append(itm); });
+    $.each(arr, function(idx, itm) { list.append(itm); });
   }
 
-  function initialize() {
+  $(function() {
 
-    jq('a#sort-name').click(function(evt){
+    $('a#sort-name').click(function(evt){
       evt.preventDefault();
-      if (jq(this).css('font-weight') == 'bold') {
+      if ($(this).css('font-weight') == 'bold') {
         reverseCredits();
       }
       else {
-        jq('#sort-actions a').css('font-weight', 'normal');
-        jq(this).css('font-weight', 'bold');
+        $('#sort-actions a').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
         sortCredits('name');
       }
     });
 
-    jq('a#sort-count').click(function(evt){
+    $('a#sort-count').click(function(evt){
       evt.preventDefault();
-      if (jq(this).css('font-weight') == 'bold') {
+      if ($(this).css('font-weight') == 'bold') {
         reverseCredits();
       }
       else {
-        jq('#sort-actions a').css('font-weight', 'normal');
-        jq(this).css('font-weight', 'bold');
+        $('#sort-actions a').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
         sortCreditsCount();
       }
     });
 
-    jq('a#sort-roles').click(function(evt){
+    $('a#sort-roles').click(function(evt){
       evt.preventDefault();
-      if (jq(this).css('font-weight') == 'bold') {
+      if ($(this).css('font-weight') == 'bold') {
         reverseCredits();
       }
       else {
-        jq('#sort-actions a').css('font-weight', 'normal');
-        jq(this).css('font-weight', 'bold');
+        $('#sort-actions a').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
         sortCredits('roles');
       }
     });
 
-    jq('a#sort-date').click(function(evt){
+    $('a#sort-date').click(function(evt){
       evt.preventDefault();
-      if (jq(this).css('font-weight') == 'bold') {
+      if ($(this).css('font-weight') == 'bold') {
         reverseCredits();
       }
       else {
-        jq('#sort-actions a').css('font-weight', 'normal');
-        jq(this).css('font-weight', 'bold');
+        $('#sort-actions a').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
         sortCredits('date');
       }
     });
-  }
 
-  registerPloneFunction(initialize);
--->
+  });
+
+})(jQuery);
 </script>
   </div>
 
