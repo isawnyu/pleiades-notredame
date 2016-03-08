@@ -47,8 +47,9 @@ p {
   margin: 1em 0;
 }
 
-p.documentDescription {
+.documentDescription {
   font-weight: bold;
+  margin-bottom: 1em;
 }
 
 ul, ol {
