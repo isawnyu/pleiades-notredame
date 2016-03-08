@@ -33,10 +33,6 @@ dd.placeChildItem {
   margin-top: 0px;
 }
 
-.field {
-  clear: left;
-}
-
 .field ul {
    list-style-position: outside;
    margin: 0;
