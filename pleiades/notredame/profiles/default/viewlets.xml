@@ -4,20 +4,22 @@
   <viewlet name="plone.site_actions" insert-before="*"/>
   <viewlet name="plone.personal_bar" insert-after="plone.site_actions"/>
  </order>
+ <order manager="plone.portalheader" skinname="Notre Dame">
+  <viewlet name="plone.logo" insert-before="*"/>
+  <viewlet name="plone.global_sections" insert-after="plone.logo"/>
+ </order>
  <order manager="plone.abovecontenttitle" skinname="Notre Dame">
   <viewlet name="pleiades.notredame.path_bar" insert-before="*"/>
   <viewlet name="plone.skip_links" insert-after="pleiades.notredame.path_bar"/>
  </order>
- <order manager="plone.portalheader" skinname="Notre Dame">
-  <viewlet name="plone.logo" insert-after="plone.site_actions"/>
-  <viewlet name="plone.global_sections" insert-after="plone.logo"/>
+ <order manager="plone.belowcontenttitle" skinname="Notre Dame">
+  <viewlet name="plone.belowcontenttitle.keywords" insert-before="*" />
  </order>
   
  <hidden manager="plone.portaltop" skinname="Notre Dame">
   <viewlet name="plone.header"/>
  </hidden>
  <hidden manager="plone.portalheader" skinname="Notre Dame">
-  <viewlet name="plone.site_actions"/>
   <viewlet name="plone.personal_bar"/>
   <viewlet name="plone.searchbox"/>
   <viewlet name="plone.skip_links"/>
