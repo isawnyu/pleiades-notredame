@@ -267,8 +267,8 @@ top: 0.5em;
 margin-right: 3px;
 }
 
-#archetypes-fieldname-connections > label::before,
-#archetypes-fieldname-connections_from > label::before {
+.field[id^="archetypes-fieldname-connections"] > label::before,
+.field[id^="archetypes-fieldname-connections"] > label::before {
 content: url(http://pleiades.stoa.org/images/pmapi/21/connection-green.png);
 position: relative;
 top: 0.5em;
