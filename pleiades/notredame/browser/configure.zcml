@@ -62,6 +62,17 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
+    <configure package="plone.app.layout.viewlets">
+        <browser:viewlet
+            name="plone.belowcontenttitle.keywords"
+            manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+            view="plone.app.layout.globals.interfaces.IViewView"
+            template="keywords.pt"
+            permission="zope2.View"
+            layer="pleiades.notredame.browser.interfaces.IPlonethemeNotredameLayer"
+            />
+    </configure>
+
     <!-- Portlet overrides -->
     
     <plone:portletRenderer

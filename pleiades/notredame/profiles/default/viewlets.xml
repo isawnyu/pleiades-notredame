@@ -25,4 +25,7 @@
  <hidden manager="plone.abovecontent" skinname="Notre Dame">
   <viewlet name="plone.path_bar"/>
  </hidden>
+ <hidden manager="plone.belowcontent" skinname="Notre Dame">
+  <viewlet name="plone.belowcontenttitle.keywords" />
+ </hidden>
 </object>
