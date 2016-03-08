@@ -128,7 +128,7 @@ img.tileImage {
 }
 
 form {
-  clear: both;
+  clear: left;
 }
 
 fieldset {
