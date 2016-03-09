@@ -7,18 +7,20 @@
       i18n:domain="plone">
 
 <head>
-  <metal:block metal:fill-slot="head_slot">
-    <link rel="stylesheet" 
-      href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+    <metal:block metal:fill-slot="head_slot">
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
     <style>
-      #map { height: 600px; float: right; }
-      #results { float: left; }
-      .hidden { display: none; }
-      .leaflet-control-zoom-reset {
-        background-image: url(zoom-reset.png);
-        margin-bottom: 5px; }
+    #map { height: 600px; float: right; }
+    #results { float: left; }
+    .hidden { display: none; }
+    .leaflet-control-zoom-reset {
+      background-image: url(zoom-reset.png);
+      margin-bottom: 5px; }
     </style>
+
     </metal:block>
+
 </head>
 <body>
 
@@ -78,18 +80,19 @@
 <h1>Recently Modified Resources</h1>
       <div 
         id="map" 
-        style="margin-top:1.5em;width:100%;height:480px;border:solid #ccc 1px;"></div>
+        style="width:100%;height:480px;border:solid #ccc 1px;"></div>
+<p><a href="http://pleiades.stoa.org/map_recent">Open fullscreen</a></p>
 </div>
 
 <div style="float:right; width:30%; margin-left:1em">
 <h1>About Pleiades</h1>
 <p>Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create,
 and share historical geographic information about the ancient world in digital form. At present, Pleiades 
-has extensive coverage for the Greek and Roman world, and is beginning to expand into Ancient Near Eastern, 
+has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, 
 Byzantine, Celtic, and Early Medieval geography.</p>
 <p>The <a href="/news/changes">most recently modified</a> resources are shown in the map at left.</p>
 <p>All published content is accessible to everyone under open license. To join and contribute new or improved content, please see <a href="welcome">Welcome to Pleiades</a>.</p>
-<p>For a complete listing of supporters and contributors, please see the <a href="credits">credits page</a>.</p>
+<p>For a complete listing of editors, content contributors, and financial supporters, please see the <a href="credits">credits page</a>.</p>
 </div>
 
     <div style="clear:all;"></div>
@@ -97,10 +100,9 @@ Byzantine, Celtic, and Early Medieval geography.</p>
 </div>
 
 <script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
-<script src="search_map.js"></script>
+<script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
 
 </body>
 </html>
-
