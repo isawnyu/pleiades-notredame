@@ -1,5 +1,6 @@
 <div id="portal-personaltools-wrapper"
-     i18n:domain="plone">
+     i18n:domain="plone"
+     tal:define="portal context/@@plone_portal_state/portal">
 
 <h5 class="hiddenStructure" i18n:translate="heading_personal_tools">Personal tools</h5>
 
@@ -10,7 +11,7 @@
        <li><a 
            id="user-name"
            tal:attributes="href view/homelink_url"
-          ><img src="" tal:replace="structure here/user.png" />
+          ><img src="" tal:replace="structure portal/user.png" />
             <span class="visualCaseSensitive"
                  tal:content="view/user_name">
                 John
