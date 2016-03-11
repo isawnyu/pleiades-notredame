@@ -33,6 +33,7 @@ input {
     vertical-align: middle;
     background: White url(http://pleiades.stoa.org/input_background.gif) repeat-x;
     font-size: 1em;
+    max-width: 100%;
 }
 
 /* Code to work around IE's lacking support of sub-elements of the input element */
@@ -147,7 +148,7 @@ dl.enableFormTabbing dd {
     color: #363636;
     cursor: pointer;
     font-size: 0.7em;
-    padding: 1px 1px 1px 15px;
+    padding: 3px 6px 3px 20px;
     text-transform: none;
     border: 1px solid #cccccc;
 }
@@ -205,6 +206,8 @@ input.searchButton {
     margin-right: 0.75em
 }
 .formHelp {
+    display: block;
+    font-weight: normal;
     font-size: 90%;
     color: #555464;
     margin: 0 0 0.2em 0;
@@ -219,7 +222,6 @@ div.error {
     border: 1px solid #d00;
     padding: 0.5em;
     margin: 0 0 1em 0;
-    width: 95%;
 }
 .error .fieldRequired {
    color: #d00;
