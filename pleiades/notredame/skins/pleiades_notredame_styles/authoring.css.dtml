@@ -462,8 +462,8 @@ dl.collapsedInlineCollapsible dt.collapsibleHeader {
   width: 100%;
 }
 
-.documentEditable fieldset {
-  margin-top: 1.4em;
+form.enableFormTabbing fieldset {
+  margin-top: 1.1em;
 }
 
 .documentEditable .field {
