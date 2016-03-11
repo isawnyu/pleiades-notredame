@@ -72,7 +72,6 @@ body#content.kupu {
 
 .contentViews li.selected a, .contentViews li a:hover {
   border: &dtml-borderWidth; &dtml-borderStyle; &dtml-contentViewBorderColor;;
-  border-top-width: 0;
   border-bottom-color: &dtml-contentViewBackgroundColor;;
   background-color: &dtml-contentViewBackgroundColor;;
 }
