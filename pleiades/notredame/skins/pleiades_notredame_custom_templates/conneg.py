@@ -7,12 +7,19 @@
 ##parameters=
 ##title=
 ##
+
+# Negotiate place view based on Accept request header.
+
+# A mod_rewrite rule in Apache forwards requests to this script
+# if it's a request for the default place view
+# and the Accept header does not contain 'html' or equal '*/*'
+
 from zExceptions import NotFound
 from Products.PythonScripts.standard import html_quote
 
 request = container.REQUEST
 RESPONSE =  request.RESPONSE
-RESPONSE.setHeader('Cache-Control', 'no-cache')
+RESPONSE.setHeader('Vary', 'Accept')
 
 # the place
 pid = request.get("pid")
