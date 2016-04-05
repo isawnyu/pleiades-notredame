@@ -1,6 +1,7 @@
 dl.portalMessage {
   font-size: 0.9em;
   border: 1px solid #c99;
+  margin-bottom: 1em;
 }
 
 dl.portalMessage a {
