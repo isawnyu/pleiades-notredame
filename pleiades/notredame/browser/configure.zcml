@@ -17,7 +17,6 @@
     <!-- Views -->
     <browser:page
         name="search"
-        class=".search.PleiadesSearch"
         permission="zope2.View"
         for="*"
         template="templates/search.pt"
