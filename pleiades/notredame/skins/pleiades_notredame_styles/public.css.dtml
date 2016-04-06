@@ -261,7 +261,7 @@ a:hover, a:active {
 }
 
 #locationsField > label::before {
-content: url(http://pleiades.stoa.org/images/pmapi/21/location-blue.png);
+content: url(&dtml-portal_url;/map_icons/location-blue.png);
 position: relative;
 top: 0.5em;
 margin-right: 3px;
@@ -269,7 +269,7 @@ margin-right: 3px;
 
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="archetypes-fieldname-connections"] > label::before {
-content: url(http://pleiades.stoa.org/images/pmapi/21/connection-green.png);
+content: url(&dtml-portal_url;/map_icons/connection-green.png);
 position: relative;
 top: 0.5em;
 margin-right: 3px;
