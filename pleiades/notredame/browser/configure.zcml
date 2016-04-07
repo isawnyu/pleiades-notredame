@@ -81,6 +81,13 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
         
+    <plone:portletRenderer
+        portlet="plone.app.portlets.portlets.review.IReviewPortlet"
+        class=".review.ReviewPortlet"
+        for="*"
+        layer=".interfaces.IPlonethemeNotredameLayer"
+       />
+
     <!-- Zope 3 browser resources -->
 
     <!-- Resource directory for images -->
