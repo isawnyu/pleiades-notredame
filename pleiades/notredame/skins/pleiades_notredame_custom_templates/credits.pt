@@ -84,7 +84,7 @@
     </div>
 
     <div id="credits-list">
-      <div class="credit-record" tal:repeat="record here/getCredits">
+      <div class="credit-record" tal:repeat="record context/@@credit_utils/get_credits">
         <img tal:attributes="src record/portrait" alt="" class="portraitPhoto" width="75" style="float: left; margin-right: 1em; margin-bottom: 1em; vertical-align: top;">
         <a rel="nofollow" tal:attributes="href string:/author/${record/username}">
           <h4 class="credit-name" tal:content="record/fullname">Full name</h4>

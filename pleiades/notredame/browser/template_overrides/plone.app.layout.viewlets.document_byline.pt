@@ -1,6 +1,7 @@
 <div class="documentByLine"
      id="plone-document-byline"
      i18n:domain="plone"
+     tal:define="credits nocall:context/@@credit_utils"
      tal:condition="view/show">
   <span id="lock-icon"
         tal:define="lock_icon view/locked_icon"
@@ -15,7 +16,7 @@
 <span i18n:name="name"
           tal:omit-tag=""
           tal:define="creators here/Creators">
-<span tal:repeat="author python:[here.userInByline(name) for name in creators][:1]"><a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span><span tal:repeat="author python:[here.userInByline(name) for name in creators][1:]">, <a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span></span>
+<span tal:repeat="author python:[credits.user_in_byline(name) for name in creators][:1]"><a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span><span tal:repeat="author python:[credits.user_in_byline(name) for name in creators][1:]">, <a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span></span>
     </span>
   </tal:name>
 
@@ -28,7 +29,7 @@
     <span i18n:name="name"
           tal:omit-tag=""
           tal:define="contributors here/Contributors">
-<span tal:repeat="author python:[here.userInByline(name) for name in contributors][:1]"><a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span><span tal:repeat="author python:[here.userInByline(name) for name in contributors][1:]">, <a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span>
+<span tal:repeat="author python:[credits.user_in_byline(name) for name in contributors][:1]"><a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span><span tal:repeat="author python:[credits.user_in_byline(name) for name in contributors][1:]">, <a tal:condition="author/id" tal:attributes="href string:/author/${author/id}" tal:content="author/fullname">Homer</a><span tal:condition="not:author/id" tal:content="author/fullname">Homer</span></span>
 </span>
   </div>
 
