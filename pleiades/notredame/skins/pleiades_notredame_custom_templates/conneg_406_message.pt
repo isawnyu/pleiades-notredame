@@ -30,10 +30,11 @@
 <p i18n:translate="description_site_error_double_check_or_search">Available variants: 
                 </p>
                 <ul>
-<li><a href="" tal:attributes="href string:${context/absolute_url}/" tal:content="string:${context/absolute_url}/">HTML</a>, type text/html</li>
-<li><a href="" tal:attributes="href string:${context/absolute_url}/turtle" tal:content="string:${context/absolute_url}/turtle">Turtle</a>, type text/turtle</li>
-<li><a href="" tal:attributes="href string:${context/absolute_url}/rdf" tal:content="string:${context/absolute_url}/rdf">RDF+XML</a>, type application/rdf+xml</li>
-
+<li><a href="" tal:attributes="href string:${context/absolute_url}/base_view" tal:content="string:${context/absolute_url}/base_view">HTML</a>, type text/html</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/turtle" tal:content="string:${context/absolute_url}/@@turtle">Turtle</a>, type text/turtle</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/rdf" tal:content="string:${context/absolute_url}/@@rdf">RDF+XML</a>, type application/rdf+xml</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/@@json" tal:content="string:${context/absolute_url}/@@json">JSON</a>, type application/json</li>
+<li><a href="" tal:attributes="href string:${context/absolute_url}/@@kml" tal:content="string:${context/absolute_url}/@@kml">KML</a>, type application/vnd.google-earth.kml+xml</li>
 </ul>
 <br/>
 </div>
