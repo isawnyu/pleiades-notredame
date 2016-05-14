@@ -22,6 +22,7 @@ vocabs = {
     }
 
 portalurl = context.portal_url()
+portal = context.portal_url.getPortalObject()
 vtool = context.portal_vocabularies
 wftool = context.portal_workflow
 catalog = context.portal_catalog
@@ -37,6 +38,11 @@ for label, index in indexes.items():
 
     if label == "Location Precision":
         values = vocabs[label]
+    elif label == 'time-periods':
+        vocab = {}
+        periods = context.restrictedTraverse('@@time-periods').periods
+        for period in periods:
+            vocab[period['id']] = period['title']
     else:
         vname = vocabs[label]
         vocab = vtool[vname].getTarget()
@@ -51,10 +57,12 @@ for label, index in indexes.items():
             tval = v
         else:
             term = vocab.get(v, None)
-            if term:
+            if term and label != 'Time Periods':
                 if wftool.getInfoFor(term, 'review_state') != 'published':
                      continue
                 tval = term.getTermValue()
+            elif term and label == 'Time Periods':
+                tval = term
             else:
                 tval = "Erroneous (%s)" % v
 
