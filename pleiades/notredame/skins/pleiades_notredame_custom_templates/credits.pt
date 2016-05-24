@@ -90,9 +90,9 @@
           <h4 class="credit-name" tal:content="record/fullname">Full name</h4>
         </a>
         <p>
-          <span class="credit-roles" tal:content="record/roles">Roles</span>
+          <span class="credit-roles" tal:content="record/roles">Roles</span><tal:b condition="record/start_date">
           since
-          <span tal:content="record/start_date">Start</span>.
+          <span tal:content="record/start_date">Start</span></tal:b>.
           <a rel="nofollow" tal:attributes="href string:/search?Creator=${record/username}">
             <span tal:content="record/authored">Count</span>
             additions</a>,
