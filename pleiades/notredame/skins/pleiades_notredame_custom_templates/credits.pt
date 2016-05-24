@@ -92,13 +92,11 @@
         <p>
           <span class="credit-roles" tal:content="record/roles">Roles</span>
           since
-          <span tal:content="record/start_date">Start</span>
-          .
+          <span tal:content="record/start_date">Start</span>.
           <a rel="nofollow" tal:attributes="href string:/search?Creator=${record/username}">
             <span tal:content="record/authored">Count</span>
             additions
-          </a>
-          ,
+          </a>,
           <a rel="nofollow" tal:attributes="href string:/search?Contributors=${record/username}">
             <span tal:content="record/contributed">Count</span>
             other contributions
