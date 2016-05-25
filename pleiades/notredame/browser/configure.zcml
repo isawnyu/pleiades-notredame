@@ -23,6 +23,15 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
+    <browser:page
+        for="*"
+        class=".review.FullReviewListView"
+        name="full_review_list"
+        template="templates/full_review_list.pt"
+        permission="cmf.ReviewPortalContent"
+        layer=".interfaces.IPlonethemeNotredameLayer"
+        />
+
     <!-- Viewlets registration -->
     <browser:viewlet
         name="plone.personal_bar"
