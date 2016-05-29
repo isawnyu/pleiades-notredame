@@ -16,7 +16,7 @@
 <body>
 <div metal:fill-slot="main"
      id="content"
-     tal:define="pid options/pid">
+     tal:define="pid options/pid|request/pid|context/getId|nothing">
 
      <br/>                 
                 <h1 class="documentFirstHeading"
