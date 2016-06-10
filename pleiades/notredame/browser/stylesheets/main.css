@@ -148,3 +148,32 @@ fieldset {
   margin: 0 auto;
   padding: 2em;
 }
+
+/* fixes for the plonebrowser add/edit image functionality */
+
+#plonebrowser #browseimage_panel #details_panel {
+    margin-left: 0% !important;
+}
+
+#plonebrowser #footer #action-button {
+    margin-left: 0% !important;
+    position: relative !important;
+}
+
+#internallinkcontainer .item:hover,
+#internallinkcontainer .cell,
+#internallinkcontainer .item {
+    display: inline-block !important;
+    width: inherit;
+}
+
+#internallinkcontainer {
+    width: 300px !important;
+    overflow: auto;
+}
+
+#internallinkcontainer .thumbnail:hover { 
+    border: 0.1em solid #ddd; 
+    z-index:2; 
+    position: relative !important; 
+}
