@@ -151,7 +151,8 @@ fieldset {
 
 /* fixes for the plonebrowser add/edit image functionality */
 
-#plonebrowser #browseimage_panel #details_panel {
+#plonebrowser #browseimage_panel #details_panel,
+#plonebrowser #browseimage_panel #addimage_panel {
     margin-left: 0% !important;
 }
 
