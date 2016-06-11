@@ -201,3 +201,8 @@ fieldset {
 #plonebrowser #details-fields .field {
     margin: 0px !important;
 }
+
+#plonebrowser #footer {
+    position: relative !important;
+}
+
