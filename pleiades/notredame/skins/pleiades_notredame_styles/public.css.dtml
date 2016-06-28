@@ -268,7 +268,8 @@ margin-right: 3px;
 }
 
 .field[id^="archetypes-fieldname-connections"] > label::before,
-.field[id^="archetypes-fieldname-connections"] > label::before {
+.field[id^="archetypes-fieldname-connections"] > label::before,
+.field[id^="connectionsField"] > label::before {
 content: url(&dtml-portal_url;/map_icons/connection-green.png);
 position: relative;
 top: 0.5em;
