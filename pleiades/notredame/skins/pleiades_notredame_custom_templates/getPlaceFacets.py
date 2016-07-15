@@ -38,14 +38,9 @@ for label, index in indexes.items():
 
     if label == "Location Precision":
         values = vocabs[label]
-    elif label == 'time-periods':
-        vocab = {}
-        periods = context.restrictedTraverse('@@time-periods').periods
-        for period in periods:
-            vocab[period['id']] = period['title']
     else:
-        vname = vocabs[label]
-        vocab = vtool[vname].getTarget()
+        terms = portal.restrictedTraverse('vocabularies/' + vocabs[label]).terms
+        terms = {term['id']: term for term in terms}
         values = catalog.uniqueValuesFor(index)
 
     data[label] = []
@@ -57,24 +52,20 @@ for label, index in indexes.items():
             tval = v
         else:
             term = vocab.get(v, None)
-            if term and label != 'Time Periods':
-                if wftool.getInfoFor(term, 'review_state') != 'published':
-                     continue
-                tval = term.getTermValue()
-            elif term and label == 'Time Periods':
-                tval = term
+            if term is not None:
+                tval = term['title']
             else:
                 tval = "Erroneous (%s)" % v
 
         results = catalog(query)
         
         item = dict(
-                    label=label,
-                    value=tval,
-                    count=len(results),
-                    details="%s/search?portal_type=Place&%s=%s" % (
-                        portalurl, index, v)
-                    )
+            label=label,
+            value=tval,
+            count=len(results),
+            details="%s/search?portal_type=Place&%s=%s" % (
+                portalurl, index, v),
+        )
         if len(results) <= 100:
             item['details'] = "%s/search?portal_type=Place&sort_on=sortable_title&%s=%s" % (portalurl, index, v)
         else:
