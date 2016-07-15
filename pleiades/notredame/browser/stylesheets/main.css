@@ -148,3 +148,82 @@ fieldset {
   margin: 0 auto;
   padding: 2em;
 }
+
+.copy-button {
+  padding: 1px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin-left: 5px;
+  position: relative;
+  vertical-align: top;
+}
+
+.copy-button:active {
+  background-color: black;
+  color: white;
+}
+.copy-button:focus {
+  outline: none;
+}
+.copy-button:active svg path {
+  fill: black;
+  stroke: white;
+}
+
+.template-base_view.portaltype-place #canonicalUrlField {
+  width: calc(100% - 500px);
+}
+
+#canonicalUrlField .copy-button, #suggestedCitationField .copy-button, 
+#representativePointField .copy-button {
+  top: -1px;
+  vertical-align: middle;
+}
+
+span.tooltip {
+  position: absolute;
+  left: 34px;
+  top: -1px;
+  z-index: 10;
+  border-radius: 5px;
+  color: white;
+  background-color: #555555;
+  text-align: center;
+  width: 120px;
+  padding: 4px 2px;
+  font-size: 10px;
+}
+
+span.tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -3px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: transparent #555555 transparent transparent;
+}
+
+code#canonical-url {
+  border: none;
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+}
+
+#wikiCitationField {
+  vertical-align: top;
+}
+
+pre#wiki-citation {
+  width: 90%;
+  display: inline-block;
+}
