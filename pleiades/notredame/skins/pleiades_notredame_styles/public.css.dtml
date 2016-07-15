@@ -207,7 +207,7 @@ a.ratingViewlet {
   border: solid #ccc 1px;
 }
 
-.leaflet-overlay-pane { z-index: 7; }
+.leaflet-overlay-pane { z-index: 7 !important; }
 
 #inner-wrapper {
   align: left;
