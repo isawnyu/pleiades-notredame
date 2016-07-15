@@ -170,12 +170,12 @@ margin: 0 0 -1em;
                         size="7"
                         multiple="multiple"
                         tal:define="contentFeatureTypes here/getFeatureType|nothing;
-                                    usedFeatureTypes python:here.portal_catalog.uniqueValuesFor('getFeatureType');"
+                                    usedFeatureTypes here/@@search_utils/get_place_type_data;"
                         >
                     <option value="#"
                             tal:repeat="subject usedFeatureTypes"
-                            tal:content="subject"
-                            tal:attributes="value subject"
+                            tal:content="subject/title"
+                            tal:attributes="value subject/id"
                             i18n:domain="plone-metadata"
                             i18n:translate=""
                             >dummy</option>
