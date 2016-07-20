@@ -20,22 +20,22 @@ class RichMetaViewlet(common.ViewletBase):
         super(RichMetaViewlet, self).update()
 
     def title(self):
-        return self.context.title
+        return self.context.Title()
 
-    def formated_title_and_content_type(self):
-        title = self.context.title
-        ct = self.context.portal_type
+    def formatted_title_and_content_type(self):
+        title = self.context.Title()
+        ct = self.context.Type()
         return title + ': a Pleiades '+ ct + ' resource'
 
     def last_modified_date(self):
         # formatted ISO 8601 """
-        return self.context.modified().asdatetime().isoformat()
+        return self.context.modified().ISO()
 
     def description(self):
-        return self.context.description
+        return self.context.Description()
 
     def rights(self):
-        return self.context.rights
+        return self.context.Rights()
 
     @memoize
     def canonical_uri(self):
