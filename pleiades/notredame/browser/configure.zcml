@@ -70,6 +70,15 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
+    <browser:viewlet
+        name="pleiades.notredame.rich_meta"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class=".viewlets.RichMetaViewlet"
+        permission="zope.Public"
+        layer=".interfaces.IPlonethemeNotredameLayer"
+        />
+
     <configure package="plone.app.layout.viewlets">
         <browser:viewlet
             name="plone.belowcontenttitle.keywords"
