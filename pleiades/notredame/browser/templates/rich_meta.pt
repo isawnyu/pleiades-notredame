@@ -3,7 +3,7 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal">
 
 <title property="dcterms:title og:title schema:name"
-       tal:content="view/formated_title_and_content_type|nothing">
+       tal:content="view/formatted_title_and_content_type|nothing">
 </title>
 
 <tal:creators tal:condition="view/creators"
