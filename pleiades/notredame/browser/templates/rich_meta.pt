@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+
+<title property="dcterms:title og:title schema:name"
+       tal:content="view/formatted_title_and_content_type|nothing">
+</title>
+
+<tal:creators tal:condition="view/creators"
+    tal:repeat="creator view/creators">
+    <meta property="dcterms:creator schema:creator" 
+          tal:attributes="content creator|nothing"/>
+</tal:creators>
+
+<tal:contributors tal:condition="view/contributors"
+    tal:repeat="contributor view/contributors">
+    <meta property="dcterms:creator schema:contributor" 
+          tal:attributes="content contributor|nothing"/>
+</tal:contributors>
+
+<meta property="dcterms:type schema:genre" 
+      content="a gazetteer of past places"/>
+
+<meta property="og:description dcterms:description schema:description" 
+      name="description"
+      tal:attributes="content view/description|nothing"/>
+
+<meta property="dcterms:date schema:dateModified" 
+      tal:attributes="content view/last_modified_date|nothing"/>
+
+<meta property="bibo:shortTitle schema:alternateName" 
+      tal:attributes="content view/title|nothing"/>
+
+<meta property="dcterms:language schema:inLanguage" 
+      content="en"/>
+
+<meta property="dcterms:rights" 
+      tal:attributes="content view/rights|nothing"/>
+
+<meta property="license cc:license schema:license dcterms:license" 
+      content="https://creativecommons.org/licenses/by/3.0/us/"/>
+
+<meta property="dcterms:publisher schema:publisher" 
+      content="Institute for the Study of the Ancient World (NYU); Ancient World Mapping Center (UNC-CH)"/>
+
+<meta property="dcterms:identifier schema:url" 
+      tal:attributes="content view/canonical_uri|nothing"/>
+
+<meta property="og:site_name" 
+      content="Pleiades: a gazetteer of past places"/>
+
+<meta property="schema:isPartOf" 
+      content="http://pleiades.stoa.org/"/>
+
+<link rel="foaf:PrimaryTopic schema:about" 
+      tal:attributes="href string:${view/canonical_uri}#this"/>
+
+</html>
