@@ -32,17 +32,6 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
-    <!-- Viewlet managers -->
-
-    <!-- needed here so that we can register DublinCoreViewlet with our layer-->
-    <browser:viewletManager
-        name="plone.htmlhead"
-        provides="plone.app.layout.viewlets.interfaces.IHtmlHead"
-        permission="zope2.View"
-        class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
-        layer=".interfaces.IPlonethemeNotredameLayer"
-        />
-
     <!-- Viewlets registration -->
     <browser:viewlet
         name="plone.personal_bar"
@@ -87,15 +76,6 @@
         manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
         class=".viewlets.RichMetaViewlet"
         permission="zope.Public"
-        layer=".interfaces.IPlonethemeNotredameLayer"
-        />
-
-    <!-- Override plone's Dublin Core Viewlet -->
-    <browser:viewlet
-        name="plone.htmlhead.dublincore"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-        class=".viewlets.DublinCoreViewlet"
-        permission="zope2.View"
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
