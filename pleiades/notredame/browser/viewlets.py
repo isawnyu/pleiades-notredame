@@ -68,12 +68,3 @@ class RichMetaViewlet(common.ViewletBase):
             else:
                 contributors.append(username)
         return contributors
-
-class DublinCoreViewlet(common.ViewletBase):
-    """ overridden so as to not display the meta content header on pages
-    """
-    tmplate_path = 'template_overrides/plone.app.layout.viewlets.dublin_core.pt'
-    index = ViewPageTemplateFile(tmplate_path)
-
-    def update(self):
-        pass
