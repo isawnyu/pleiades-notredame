@@ -20,12 +20,12 @@ class RichMetaViewlet(common.ViewletBase):
         super(RichMetaViewlet, self).update()
 
     def title(self):
-        return self.context.Title()
+        return unicode(self.context.Title(), 'utf-8')
 
     def formatted_title_and_content_type(self):
         title = self.context.Title()
         ct = self.context.Type()
-        return title + ': a Pleiades '+ ct + ' resource'
+        return unicode(title, 'utf-8') + ': a Pleiades '+ ct + ' resource'
 
     def last_modified_date(self):
         # formatted ISO 8601 """
