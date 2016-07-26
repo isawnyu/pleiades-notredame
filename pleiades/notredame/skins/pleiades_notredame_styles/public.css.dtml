@@ -207,7 +207,11 @@ a.ratingViewlet {
   border: solid #ccc 1px;
 }
 
-.leaflet-overlay-pane { z-index: 7 !important; }
+.repr-pt-marker {
+  background: #FFA500;
+  border: solid 1px #333;
+  border-radius: 50%;
+}
 
 #inner-wrapper {
   align: left;
