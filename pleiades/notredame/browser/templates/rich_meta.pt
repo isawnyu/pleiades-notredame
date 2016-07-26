@@ -2,21 +2,26 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal">
 
-<title property="dcterms:title og:title schema:name"
-       tal:content="view/formatted_title_and_content_type|nothing">
-</title>
+<tal:credit_utils
+    tal:define="credits nocall:context/@@credit_utils;">
 
-<tal:creators tal:condition="view/creators"
-    tal:repeat="creator view/creators">
-    <meta property="dcterms:creator schema:creator" 
-          tal:attributes="content creator|nothing"/>
-</tal:creators>
+    <title property="dcterms:title og:title schema:name"
+           tal:content="python:credits.formatted_title() or ''">
+    </title>
 
-<tal:contributors tal:condition="view/contributors"
-    tal:repeat="contributor view/contributors">
-    <meta property="dcterms:creator schema:contributor" 
-          tal:attributes="content contributor|nothing"/>
-</tal:contributors>
+    <tal:creators tal:condition="python:credits.creators"
+        tal:repeat="creator python:credits.creators()">
+        <meta property="dcterms:creator schema:creator"
+              tal:attributes="content creator|nothing"/>
+    </tal:creators>
+
+    <tal:contributors tal:condition="python:credits.contributors"
+        tal:repeat="contributor python:credits.contributors()">
+        <meta property="dcterms:creator schema:contributor"
+              tal:attributes="content contributor|nothing"/>
+    </tal:contributors>
+
+</tal:credit_utils>
 
 <meta property="dcterms:type schema:genre" 
       content="a gazetteer of past places"/>

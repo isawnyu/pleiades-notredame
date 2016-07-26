@@ -12,6 +12,7 @@ class PathBarViewlet(common.PathBarViewlet):
 
 class RichMetaViewlet(common.ViewletBase):
     """ Viewlet that embedds rich bibliography data on each page
+        note: template also makes use of methods from @@credit_utils view
     """
 
     index = ViewPageTemplateFile('templates/rich_meta.pt')
@@ -21,11 +22,6 @@ class RichMetaViewlet(common.ViewletBase):
 
     def title(self):
         return unicode(self.context.Title(), 'utf-8')
-
-    def formatted_title_and_content_type(self):
-        title = self.context.Title()
-        ct = self.context.Type()
-        return unicode(title, 'utf-8') + ': a Pleiades '+ ct + ' resource'
 
     def last_modified_date(self):
         # formatted ISO 8601 """
@@ -40,31 +36,3 @@ class RichMetaViewlet(common.ViewletBase):
     @memoize
     def canonical_uri(self):
         return self.context.absolute_url()
-
-    def creators(self):
-        """ return list of creator's fullnames
-        """
-        creators = []
-        mt = getToolByName(self.context, 'portal_membership')
-        creators_tuple = self.context.listCreators()
-        for username in creators_tuple:
-            member = mt.getMemberById(username)
-            if member is not None:
-                creators.append(member.getProperty("fullname"))
-            else:
-                creators.append(username)
-        return creators
-
-    def contributors(self):
-        """ return list of contributor's fullnames            
-        """
-        contributors = []
-        mt = getToolByName(self.context, 'portal_membership')
-        contributors_tuple = self.context.listContributors()
-        for username in contributors_tuple:
-            member = mt.getMemberById(username)
-            if member is not None:
-                contributors.append(member.getProperty("fullname"))
-            else:
-                contributors.append(username)
-        return contributors
