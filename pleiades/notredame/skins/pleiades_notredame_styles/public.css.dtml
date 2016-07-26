@@ -207,6 +207,12 @@ a.ratingViewlet {
   border: solid #ccc 1px;
 }
 
+.repr-pt-marker {
+  background: #FFA500;
+  border: solid 1px #333;
+  border-radius: 50%;
+}
+
 #inner-wrapper {
   align: left;
 }
