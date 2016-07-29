@@ -282,6 +282,32 @@ top: 0.5em;
 margin-right: 3px;
 }
 
+#content-type-title-icon::before {
+    position: relative;
+    top: 0.5em;
+    margin-right: 3px;
+}
+
+.Place-icon::before {
+    content: url(&dtml-portal_url;/resource_type_icons/place-blue.png);
+}
+
+.Location-icon::before {
+    content: url(&dtml-portal_url;/resource_type_icons/location-blue.png);
+}
+
+.Name-icon::before {
+    content: url(&dtml-portal_url;/resource_type_icons/name-blue.png);
+}
+
+.Connection-icon::before {
+    content: url(&dtml-portal_url;/resource_type_icons/connection-blue.png);
+}
+
+#parent-fieldname-title.documentFirstHeading {
+    display: inline !important;
+}
+
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */
