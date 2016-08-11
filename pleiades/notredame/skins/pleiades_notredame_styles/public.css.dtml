@@ -308,6 +308,15 @@ margin-right: 3px;
     display: inline !important;
 }
 
+button.BibInfoFetchButton {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+button.BibInfoFetchButton:before {
+  content: "\1F50D";
+}
+
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */
