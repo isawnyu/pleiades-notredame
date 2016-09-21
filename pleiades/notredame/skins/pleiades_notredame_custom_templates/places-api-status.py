@@ -21,5 +21,5 @@ for k, v in types_count.items():
 return ''.join([
     '{',
     '"num_places": %(num_places)d, "num_locations": %(num_locations)d, "num_names": %(num_names)d, ' % types_count,
-    '"slideshow_data": {"recent": "http://pleiades.stoa.org/ssdRecentPlaceJson", "any": "http://pleiades.stoa.org/ssdAnyPlaceJson"}',
+    '"slideshow_data": {"recent": "https://pleiades.stoa.org/ssdRecentPlaceJson", "any": "https://pleiades.stoa.org/ssdAnyPlaceJson"}',
     '}' ])

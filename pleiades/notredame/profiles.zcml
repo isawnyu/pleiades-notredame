@@ -5,7 +5,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Notre Dame"
+      title="Pleiades Theme"
       directory="profiles/default"
       description='Extension profile for the "Pleiades (Notre Dame)" Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"

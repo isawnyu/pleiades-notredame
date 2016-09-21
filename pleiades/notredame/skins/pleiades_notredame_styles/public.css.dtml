@@ -308,6 +308,24 @@ margin-right: 3px;
     display: inline !important;
 }
 
+button.BibInfoFetchButton {
+  padding: 5px;
+  margin-left: 10px;
+}
+
+button.BibInfoFetchButton:before {
+  content: "\1F50D";
+}
+
+dl.ReferenceList dt {
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 1em;
+}
+
+dl.ReferenceList dd ul {
+  margin-left: 3em;
+}
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */
