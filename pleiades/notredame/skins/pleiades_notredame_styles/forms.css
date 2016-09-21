@@ -21,7 +21,7 @@ textarea {
     border: 1px solid #ddd;
     border-color:#666 #ddd #ddd #666;
     color: Black;
-    background: White url(http://pleiades.stoa.org/input_background.gif) repeat-x;
+    background: White url(//pleiades.stoa.org/input_background.gif) repeat-x;
     width: 100%;
 }
 input {
@@ -31,7 +31,7 @@ input {
     border-color:#666 #ddd #ddd #666;
     color: Black;
     vertical-align: middle;
-    background: White url(http://pleiades.stoa.org/input_background.gif) repeat-x;
+    background: White url(//pleiades.stoa.org/input_background.gif) repeat-x;
     font-size: 1em;
     max-width: 100%;
 }
@@ -133,7 +133,7 @@ dl.enableFormTabbing dd {
 
 .standalone,
 .documentEditable * .standalone {
-    background: #ffffff url(http://pleiades.stoa.org/linkOpaque.gif) 9px 1px no-repeat;
+    background: #ffffff url(//pleiades.stoa.org/linkOpaque.gif) 9px 1px no-repeat;
     color: #363636;
     cursor: pointer;
     font-size: 0.7em;
@@ -144,7 +144,7 @@ dl.enableFormTabbing dd {
 .context,
 .formControls .actionButtons .button,
 .documentEditable * .context {
-    background: transparent url(http://pleiades.stoa.org/linkTransparent.gif) 9px 1px no-repeat;
+    background: transparent url(//pleiades.stoa.org/linkTransparent.gif) 9px 1px no-repeat;
     color: #363636;
     cursor: pointer;
     font-size: 0.7em;
@@ -154,7 +154,7 @@ dl.enableFormTabbing dd {
 }
 .destructive,
 .documentEditable * .destructive {
-    background: #ffffaa url(http://pleiades.stoa.org/linkTransparent.gif) 9px 1px no-repeat;
+    background: #ffffaa url(//pleiades.stoa.org/linkTransparent.gif) 9px 1px no-repeat;
     border: 1px solid #eecc55;
     color: #363636;
     cursor: pointer;
@@ -167,7 +167,7 @@ input.searchButton {
     margin-bottom: 1px ! important;
     color: #363636;
     font-size: 0.7em;
-    background: transparent url(http://pleiades.stoa.org/search_icon.gif) 2px 1px no-repeat;
+    background: transparent url(//pleiades.stoa.org/search_icon.gif) 2px 1px no-repeat;
     cursor: pointer;
     padding: 1px 1px 1px 19px;
     text-transform: none;
@@ -192,7 +192,7 @@ input.searchButton {
     margin: 0;
 }
 .fieldRequired {
-    background: url(http://pleiades.stoa.org/required.gif) center left no-repeat;
+    background: url(//pleiades.stoa.org/required.gif) center left no-repeat;
     padding: 0 0 0 8px;
     color: transparent;
 }
