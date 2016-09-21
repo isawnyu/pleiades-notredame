@@ -55,7 +55,7 @@
       content="Pleiades: a gazetteer of past places"/>
 
 <meta property="schema:isPartOf" 
-      content="http://pleiades.stoa.org/"/>
+      content="https://pleiades.stoa.org/"/>
 
 <link rel="foaf:PrimaryTopic schema:about" 
       tal:attributes="href string:${view/canonical_uri}#this"/>
