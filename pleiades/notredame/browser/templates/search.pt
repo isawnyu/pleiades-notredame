@@ -19,7 +19,7 @@
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_kml?${request/QUERY_STRING}"/>
   <link rel="stylesheet" 
-    href="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+    href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <style>
     #map { height: 600px; float: right; }
     #resultsContainer { float: left; }
@@ -246,7 +246,7 @@ jQuery(function($) {
 });
 </script>
 
-<script src="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
