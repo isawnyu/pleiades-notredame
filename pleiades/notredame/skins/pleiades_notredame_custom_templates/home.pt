@@ -9,7 +9,7 @@
 <head>
     <metal:block metal:fill-slot="head_slot">
 
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <style>
     #map { height: 600px; float: right; }
     #results { float: left; }
@@ -99,7 +99,7 @@ Byzantine, Celtic, and Early Medieval geography.</p>
 
 </div>
 
-<script src="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
