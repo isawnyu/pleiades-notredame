@@ -9,7 +9,7 @@
 <head>
     <metal:block metal:fill-slot="head_slot">
 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
     <style>
     #map { height: 600px; float: right; }
     #results { float: left; }
@@ -46,7 +46,7 @@
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
     <span style="font-size:xx-large; font-weight:bold; display:block" tal:content="count/num_places">N</span>
     <span style="font-size:large; display:block"> Ancient Places</span>
-    <a href="/places/"><img src="http://farm2.static.flickr.com/1409/5185498216_d316b4819d_m.jpg"
+    <a href="/places/"><img src="https://farm2.static.flickr.com/1409/5185498216_d316b4819d_m.jpg"
          alt="Credits: http://en.wikipedia.org/wiki/File:Mosaique_du_Nil_(palais_Barberini).JPG"
          title="Credits: http://en.wikipedia.org/wiki/File:Mosaique_du_Nil_(palais_Barberini).JPG"
          height=160 width=200/></a>
@@ -55,7 +55,7 @@
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
     <span style="font-size:xx-large; font-weight:bold; display:block" tal:content="count/num_names">N</span>
     <span style="font-size:large; display:block"> Ancient Names</span>
-    <a href="/places/" style="link-decoration:none"><img src="http://atlantides.org/images/inscription-coptic.jpg" 
+    <a href="/places/" style="link-decoration:none"><img src="https://atlantides.org/images/inscription-coptic.jpg" 
          alt="Credits: http://en.wikipedia.org/wiki/File:Coptic_liturgic_inscription.JPG" 
          title="Credits: http://en.wikipedia.org/wiki/File:Coptic_liturgic_inscription.JPG" 
          height=160 width=200/></a>
@@ -64,7 +64,7 @@
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
     <span style="font-size:xx-large;  font-weight:bold; display:block" tal:content="count/num_locations">N</span>
     <span style="font-size:large; display:block"> Ancient Locations</span>
-    <a href="/places/"><img src="http://farm2.static.flickr.com/1408/4727178977_efbccf1884_m_d.jpg" 
+    <a href="/places/"><img src="https://farm2.static.flickr.com/1408/4727178977_efbccf1884_m_d.jpg" 
          alt="Credits: http://www.flickr.com/photos/isawnyu/4727178977/in/set-72157624340575014/"
          title="Credits: http://www.flickr.com/photos/isawnyu/4727178977/in/set-72157624340575014/"
          height=160 width=200/></a>
@@ -99,7 +99,7 @@ Byzantine, Celtic, and Early Medieval geography.</p>
 
 </div>
 
-<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+<script src="//cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
