@@ -26,7 +26,7 @@
     <p>
       Pleiades is a joint project of the <a title="AWMC" href="http://www.unc.edu/awmc/">Ancient World Mapping Center</a>,
       the <a title="Stoa" href="http://www.stoa.org/">Stoa Consortium</a>, and the
-      <a title="ISAW" href="http://www.nyu.edu/isaw/">Institute for the Study of the Ancient World</a>. Copyrights on 
+      <a title="ISAW" href="http://www.nyu.edu/isaw/">Institute for the Study of the Ancient World</a>. Copyrights on
       software and content are held by the participating institutions and by the
       <a href="/credits#credits-list">individual contributors listed below</a>. Using, sharing, and remixing of the content
       is permitted under terms of the
@@ -59,15 +59,16 @@
       <a href="/author/scosta">Stefano Costa</a>,
       <a href="/author/adgraauw">Arthur De Graauw</a>,
       <a href="/author/sdunn">Stuart Dunn</a>,
+      <a href="/author/mdurusu">Müge Durusu</a>,
       <a href="/author/nkaye">Noah Kaye</a>,
       <a href="/author/sarcanon">Scott Vanderbilt</a>
     </p>
 
     <p>The Pleiades community is grateful to the following individuals who previously served as members of the editorial college: <a href="/author/mccormick">Michael McCormick</a>, <a href="/author/rosst">Ross Twele</a>.</p>
     <p>We are also grateful to the following individuals who previously served as reviewers: <a href="/author/pscalfano">Perry Scalfano</a>.</p>
-    
+
     <h2>Individual Contributions</h2>
-    
+
     <p>The following individuals have contributed their time and talent to expanding and enhancing the content of Pleiades.</p>
 
     <div id="sort-actions">
@@ -108,14 +109,14 @@
     </div>
 
 <div>
-<p>Funding for the creation of this on-going digital publication has been provided by the participating institutions, 
+<p>Funding for the creation of this on-going digital publication has been provided by the participating institutions,
       and by grants (2006-2014) from the U.S.
       <a href="http://www.neh.gov">National Endowment for the Humanities</a>.
     </p>
 
-    <p>Pleiades incorporates content from the following works:</p> 
+    <p>Pleiades incorporates content from the following works:</p>
     <ul>
-      <li>Michael McCormick, Guoping Huang, Kelly Gibson et al. (ed.) <em>Digital Atlas of Roman and Medieval 
+      <li>Michael McCormick, Guoping Huang, Kelly Gibson et al. (ed.) <em>Digital Atlas of Roman and Medieval
       Civilizations,</em> Harvard University Center for Geographic Analysis:
       <a href="http://darmc.harvard.edu/">http://darmc.harvard.edu</a>.</li>
       <li>Richard Talbert (ed.), <em>Barrington Atlas of the Greek and Roman World,</em> Princeton, 2000.</li>
@@ -127,7 +128,7 @@
       <a class="external-link" href="http://plone.org/author/daftdog">Christian Schneider</a>.
     </p>
 
-    <p>The banner image of the 
+    <p>The banner image of the
       <a href="http://en.wikipedia.org/wiki/Nereid_Monument">Nereid Monument</a>
       is adapted from a photo by
       <a href="http://www.flickr.com/photos/jikamajoja/796816947/">jikamajoja</a>. The home page also uses images from
@@ -136,13 +137,13 @@
       <a class="external-link" href="http://www.flickr.com/photos/isawnyu/4727178977/in/set-72157624340575014/">Ancient World Image Bank (on Flickr)</a>.
     </p>
 
-    <p>The dynamic maps found throughout the website were designed and coded by Sean Gillies and Tom Elliott using the 
+    <p>The dynamic maps found throughout the website were designed and coded by Sean Gillies and Tom Elliott using the
       <a href="http://leafletjs.com/">Leaflet Javascript map library</a>. User-selectable terrain layers are provided, including:</p>
     <ul>
-      <li>"Ancient terrain (default)" (2014) by Ryan Horne, et al. for AWMC. See further: 
+      <li>"Ancient terrain (default)" (2014) by Ryan Horne, et al. for AWMC. See further:
         <a href="http://awmc.unc.edu/wordpress/tiles/map-tile-information">AWMC Map Tiles</a>.</li>
       <li>"Modern terrain" and "Modern Streets" (2012) by Sean Gillies for ISAW</li>
-      <li>"Roman Empire" (2012) by Johan &Aring;hlfeldt for the <a href="http://pelagios-project.blogspot.com/">Pelagios Project</a>. See further: 
+      <li>"Roman Empire" (2012) by Johan &Aring;hlfeldt for the <a href="http://pelagios-project.blogspot.com/">Pelagios Project</a>. See further:
         <a href="http://pelagios.dme.ait.ac.at/maps/greco-roman/about.html">About the Digital Map of the Roman Empire</a>.</li>
     </ul>
     <p>The AWMC and ISAW map bases are served to the web via <a href="https://www.mapbox.com/">Mapbox.com</a>; funding provided by ISAW.</p>
