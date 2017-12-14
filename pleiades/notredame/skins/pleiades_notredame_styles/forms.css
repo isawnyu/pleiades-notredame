@@ -191,6 +191,9 @@ input.searchButton {
 .field .field {
     margin: 0;
 }
+.ArchetypesCompoundWidget .field {
+    margin-bottom: 1em;
+}
 .fieldRequired {
     background: url(//pleiades.stoa.org/required.gif) center left no-repeat;
     padding: 0 0 0 8px;
@@ -211,10 +214,11 @@ input.searchButton {
     font-size: 90%;
     color: #555464;
     margin: 0 0 0.2em 0;
+    max-width: 60em;
 }
 .formHelp:hover {
-    color: #363636;
-    cursor: default;
+    cursor: help;
+    background-color: #DDDDDD;
 }
 div.error {
     /* Class for error indication in forms */
