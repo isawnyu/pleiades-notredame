@@ -27,6 +27,7 @@ dd.placeChildItem {
 .placeChildren {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  padding-left: 25px !important;
 }
 
 .placeChildrenHeader {
