@@ -274,7 +274,12 @@ margin-right: 3px;
 }
 
 #namesField > label::before {
-content: url(&dtml-portal_url;/map_icons/name-blue.png);
+background-image: url(&dtml-portal_url;/map_icons/name-blue.png);
+background-size: 16px 19px;
+display: inline-block;
+width: 16px;
+height: 19px;
+content: "";
 position: relative;
 top: 0.5em;
 margin-right: 3px;
