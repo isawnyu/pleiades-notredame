@@ -282,9 +282,10 @@ margin-right: 3px;
 #namesField > label::before {
 background-image: url(&dtml-portal_url;/resource_type_icons/name-blue.png);
 background-size: 21px 21px;
+background-repeat: no-repeat;
 display: inline-block;
 width: 21px;
-height: 21px;
+height: 25px;
 content: "";
 position: relative;
 top: 0.5em;
