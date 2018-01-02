@@ -267,7 +267,7 @@ a:hover, a:active {
 }
 
 #locationsField > label::before {
-background-image: url(&dtml-portal_url;/resource_type_icons/location-blue.png);
+background-image: url(&dtml-portal_url;/map_icons/location-blue.png);
 background-size: 21px 25px;
 display: inline-block;
 width: 21px;
@@ -280,10 +280,10 @@ margin-right: 3px;
 
 #namesField > label::before {
 background-image: url(&dtml-portal_url;/resource_type_icons/name-blue.png);
-background-size: 21px 25px;
+background-size: 21px 21px;
 display: inline-block;
 width: 21px;
-height: 25px;
+height: 21px;
 content: "";
 position: relative;
 top: 0.5em;
@@ -293,7 +293,7 @@ margin-right: 3px;
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="connectionsField"] > label::before {
-background-image: url(&dtml-portal_url;/resource_type_icons/connection-green.png);
+background-image: url(&dtml-portal_url;/map_icons/connection-green.png);
 background-size: 21px 25px;
 display: inline-block;
 width: 21px;
