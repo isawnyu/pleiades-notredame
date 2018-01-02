@@ -27,6 +27,7 @@ dd.placeChildItem {
 .placeChildren {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  padding-left: 25px !important;
 }
 
 .placeChildrenHeader {
@@ -61,6 +62,8 @@ dd.placeChildItem {
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
+  margin-left: 25px;
+  margin-top: 3px;
   padding: 0 10px;
   text-shadow: 0 1px 0 #FFF;
   white-space: nowrap;
@@ -267,7 +270,25 @@ a:hover, a:active {
 }
 
 #locationsField > label::before {
-content: url(&dtml-portal_url;/map_icons/location-blue.png);
+background-image: url(&dtml-portal_url;/map_icons/location-blue.png);
+background-size: 21px 25px;
+display: inline-block;
+width: 21px;
+height: 25px;
+content: "";
+position: relative;
+top: 0.5em;
+margin-right: 3px;
+}
+
+#namesField > label::before {
+background-image: url(&dtml-portal_url;/resource_type_icons/name-blue.png);
+background-size: 21px 21px;
+background-repeat: no-repeat;
+display: inline-block;
+width: 21px;
+height: 25px;
+content: "";
 position: relative;
 top: 0.5em;
 margin-right: 3px;
@@ -276,7 +297,12 @@ margin-right: 3px;
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="connectionsField"] > label::before {
-content: url(&dtml-portal_url;/map_icons/connection-green.png);
+background-image: url(&dtml-portal_url;/map_icons/connection-green.png);
+background-size: 21px 25px;
+display: inline-block;
+width: 21px;
+height: 25px;
+content: "";
 position: relative;
 top: 0.5em;
 margin-right: 3px;
