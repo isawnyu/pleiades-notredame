@@ -273,6 +273,13 @@ top: 0.5em;
 margin-right: 3px;
 }
 
+#namesField > label::before {
+content: url(&dtml-portal_url;/map_icons/name-blue.png);
+position: relative;
+top: 0.5em;
+margin-right: 3px;
+}
+
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="archetypes-fieldname-connections"] > label::before,
 .field[id^="connectionsField"] > label::before {
