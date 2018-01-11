@@ -270,10 +270,10 @@ a:hover, a:active {
 }
 
 .connection-verb::before {
-    content: "➡ "
+    content: " ➡ "
 }
 .connection-verb::after {
-    content: "︎ ➡"
+    content: " ➡ "
 }
 
 #locationsField > label::before {
