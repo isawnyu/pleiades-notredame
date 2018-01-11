@@ -269,6 +269,13 @@ a:hover, a:active {
    text-decoration: underline;
 }
 
+.connection-verb::before {
+    content: "➡ "
+}
+.connection-verb::after {
+    content: "︎ ➡"
+}
+
 #locationsField > label::before {
 background-image: url(&dtml-portal_url;/map_icons/location-blue.png);
 background-size: 21px 25px;
