@@ -11,4 +11,12 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:upgradeDepends
+      profile="pleiades.notredame:default"
+      source="1.2-beta2"
+      destination="2"
+      sortkey="1"
+      title="Remove GA JS"
+      import_steps="jsregistry" />
+
 </configure>
