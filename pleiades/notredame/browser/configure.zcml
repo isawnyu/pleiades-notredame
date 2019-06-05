@@ -33,7 +33,7 @@
         />
 
     <!-- Viewlets registration -->
-    <browser:viewlet
+    <!--browser:viewlet
         name="plone.personal_bar"
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
@@ -41,7 +41,7 @@
         template="templates/personal_bar.pt"
         permission="zope.Public"
         layer=".interfaces.IPlonethemeNotredameLayer"
-        />
+        /-->
     
     <browser:viewlet
         name="plone.site_actions"
@@ -61,14 +61,14 @@
         layer=".interfaces.IPlonethemeNotredameLayer"
         />
 
-    <browser:viewlet
+    <!--browser:viewlet
         name="plone.skip_links"
         for="*"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         class="plone.app.layout.viewlets.common.SkipLinksViewlet"
         permission="zope.Public"
         layer=".interfaces.IPlonethemeNotredameLayer"
-        />
+        /-->
 
     <browser:viewlet
         name="pleiades.notredame.rich_meta"
@@ -90,7 +90,7 @@
             />
     </configure>
 
-    <!-- Portlet overrides -->
+    <!-- Portlet overrides>
     
     <plone:portletRenderer
         portlet="plone.app.portlets.portlets.calendar.ICalendarPortlet"
@@ -104,7 +104,7 @@
         class=".review.ReviewPortlet"
         for="*"
         layer=".interfaces.IPlonethemeNotredameLayer"
-       />
+       /-->
 
     <!-- Zope 3 browser resources -->
 
