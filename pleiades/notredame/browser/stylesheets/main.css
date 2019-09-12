@@ -227,3 +227,11 @@ pre#wiki-citation {
   width: 90%;
   display: inline-block;
 }
+
+.field[id^="archetypes-fieldname-notBefore"] label {
+  font-weight: normal;
+}
+
+.field[id^="archetypes-fieldname-notAfter"] label {
+  font-weight: normal;
+}
