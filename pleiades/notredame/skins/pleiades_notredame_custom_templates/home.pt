@@ -41,7 +41,7 @@
        type="application/json"
        tal:attributes="href python:search_json(brains=Batch(results, b_size, int(b_start), orphan=1));"></a>
 
-    <div tal:define="count here/countType" style="height:220px; overflow:hidden; margin-top:1.5em">
+    <div tal:define="count here/countType" style="height:80px; overflow:hidden; margin-top:1.5em">
     
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
       <span style="font-size:xx-large; font-weight:bold; display:block" tal:content="count/num_places">N</span>
