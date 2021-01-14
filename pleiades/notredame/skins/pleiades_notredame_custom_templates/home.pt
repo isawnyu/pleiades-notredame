@@ -8,17 +8,18 @@
 
 <head>
     <metal:block metal:fill-slot="head_slot">
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-    <style>
-    #map { height: 600px; float: right; }
-    #results { float: left; }
-    .hidden { display: none; }
-    .leaflet-control-zoom-reset {
-      background-image: url(zoom-reset.png);
-      margin-bottom: 5px; }
-    </style>
-
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+      <style>
+      #map { height: 600px; float: right; }
+      #results { float: left; }
+      .hidden { display: none; }
+      .leaflet-control-zoom-reset {
+        background-image: url(zoom-reset.png);
+        margin-bottom: 5px; }
+      </style>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     </metal:block>
 
 </head>
@@ -86,7 +87,6 @@ Byzantine, Celtic, and Early Medieval geography.</p>
 
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
