@@ -116,5 +116,9 @@ $(function() {
         var f = where.features[i];
         setupFeature(f);
     }
+    bounds = L.latLngBounds([
+        [where.bbox[1], where.bbox[0]],
+        [where.bbox[3], where.bbox[2]]
+    ]).pad(0.10);
     rebound();
 });
