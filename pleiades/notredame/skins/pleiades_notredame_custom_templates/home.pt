@@ -26,9 +26,9 @@
 <body>
 
 <div metal:fill-slot="main"
-      tal:define="results python:here.portal_catalog.searchResults(portal_type=['Place'], sort_on='modified', sort_order='descending', sort_limit=30)[:30];
+      tal:define="results python:here.portal_catalog.searchResults(portal_type=['Place'], sort_on='modified', sort_order='descending', sort_limit=100)[:100];
       Batch python:modules['Products.CMFPlone'].Batch;
-      b_size python:30;
+      b_size python:100;
       b_start python:0;
       b_start request/b_start | b_start;
       search_json nocall:here/@@search-json/data_uri;" >
