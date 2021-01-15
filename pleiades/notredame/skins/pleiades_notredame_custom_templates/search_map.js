@@ -87,27 +87,6 @@ $(function() {
         });
     outdoors2020.addTo(map);
 
-    /* Not added by default, only through user control action */
-    var satellite2020 = L.tileLayer(
-        'https://api.mapbox.com/styles/v1/isawnyu/ckg9eqejk2j4a19oexu5ywrqu/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw', {
-            attribution: 'Powered by <a href="http://leafletjs.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base from MapBox "Streets v8" and "Satellite" datasets using a modified "Satellite Streets" style in MapBox Studio.',
-        });
-
-    var imperium = L.tileLayer(
-        'http://dh.gu.se/tiles/imperium/{z}/{x}/{y}.png', {
-            attribution: 'Powered by <a href="http://leafletjs.com/">Leaflet</a> and <a href="https://www.mapbox.com/">DARE</a>. Map base by Johan Åhlfeldt for the <a href="https://dh.gu.se/dare/">Digital Atlas of the Roman Empire</a>.',
-            maxZoom: 11
-        });
-
-    var baseLayers = {
-        "Modern Landscape (default)": outdoors2020,
-        "Satellite": satellite2020,
-        "DARE Roman Empire": imperium,
-    };
-
-    var overlays = null;
-    L.control.layers(baseLayers, overlays).addTo(map);
-
     function rebound() {
         /* If there's no spatial context at all, set large bounds. */
         if (!bounds) {
