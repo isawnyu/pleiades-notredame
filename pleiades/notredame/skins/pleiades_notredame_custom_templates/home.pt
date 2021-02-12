@@ -1,95 +1,110 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+xmlns:tal="http://xml.zope.org/namespaces/tal"
+xmlns:metal="http://xml.zope.org/namespaces/metal"
+xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+lang="en"
+metal:use-macro="here/main_template/macros/master"
+i18n:domain="plone">
 
 <head>
-    <metal:block metal:fill-slot="head_slot">
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""/>
-      <style>
-      #map { height: 600px; float: right; }
-      #results { float: left; }
-      .hidden { display: none; }
-      .leaflet-control-zoom-reset {
-        background-image: url(zoom-reset.png);
-        margin-bottom: 5px; }
-      </style>
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    </metal:block>
-
+  <metal:block metal:fill-slot="head_slot">
+  <style>
+    #map { height: 600px; float: right; }
+    #results { float: left; }
+    .hidden { display: none; }
+    #map-links { 
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+    #map-links > p {
+      padding: 0px;
+    }
+    #map-credit { 
+      font-style: italic; 
+      padding-top: 0.3em;
+      padding-bottom: 0.3em
+    }
+    .mapbox-gl-reset-box { 
+        background-image: url('reset-box.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+    }
+    .mapbox-improve-map {
+          display: none;
+    }
+</style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+  </metal:block>
 </head>
 <body>
-
-<div metal:fill-slot="main"
-      tal:define="results python:here.portal_catalog.searchResults(portal_type=['Place'], sort_on='modified', sort_order='descending', sort_limit=100)[:100];
-      Batch python:modules['Products.CMFPlone'].Batch;
-      b_size python:100;
-      b_start python:0;
-      b_start request/b_start | b_start;
-      search_json nocall:here/@@search-json/data_uri;" >
-
-    <!--h1 i18n:translate="heading_welcome_to">Welcome to
-        <span i18n:name="sitename" tal:omit-tag="" tal:content="here/Title">Portal title</span>
-    </h1-->
-
-    <a class="hidden" href=""
-       rel="where"
-       type="application/json"
-       tal:attributes="href python:search_json(brains=Batch(results, b_size, int(b_start), orphan=1));"></a>
-
-    <div tal:define="count here/countType" style="height:80px; overflow:hidden; margin-top:1.5em">
+  
+  <div metal:fill-slot="main"
+  tal:define="results python:here.portal_catalog.searchResults(portal_type=['Place'], sort_on='modified', sort_order='descending', sort_limit=100)[:100];
+  Batch python:modules['Products.CMFPlone'].Batch;
+  b_size python:100;
+  b_start python:0;
+  b_start request/b_start | b_start;
+  search_json nocall:here/@@search-json/data_uri;" >
+  
+  <!--h1 i18n:translate="heading_welcome_to">Welcome to
+    <span i18n:name="sitename" tal:omit-tag="" tal:content="here/Title">Portal title</span>
+  </h1-->
+  
+  <a class="hidden" href=""
+  rel="where"
+  type="application/json"
+  tal:attributes="href python:search_json(brains=Batch(results, b_size, int(b_start), orphan=1));"></a>
+  
+  <div tal:define="count here/countType" style="height:80px; overflow:hidden; margin-top:1.5em">
     
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
       <span style="font-size:xx-large; font-weight:bold; display:block" tal:content="count/num_places">N</span>
       <span style="font-size:large; display:block">Places</span>
     </div>
-
+    
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
       <span style="font-size:xx-large; font-weight:bold; display:block" tal:content="count/num_names">N</span>
       <span style="font-size:large; display:block">Names</span>
     </div>
-
+    
     <div style="text-align:center; float:left; width:33%; font-family: Verdana, sans-serif; color:#333">
       <span style="font-size:xx-large;  font-weight:bold; display:block" tal:content="count/num_locations">N</span>
       <span style="font-size:large; display:block">Locations</span>    
     </div>
-
+    
     <div style="clear:all;"></div>
-    </div>
-
-<div style="margin-top: 1.5em;">
-
-<div style="float:left; width:65%; margin-right:1em">
-<h1>Recently Modified Resources</h1>
+  </div>
+  
+  <div style="margin-top: 1.5em;">
+    
+    <div style="float:left; width:65%; margin-right:1em">
+      <h1>Recently Modified Resources</h1>
       <div 
-        id="map" 
-        style="width:100%;height:480px;border:solid #ccc 1px;"></div>
-<p><a tal:attributes="href string:${context/portal_url}/map_recent">Open fullscreen</a></p>
-</div>
-
-<div style="float:right; width:30%; margin-left:1em">
-<h1>About Pleiades</h1>
-<p>Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create,
-and share historical geographic information about the ancient world in digital form. At present, Pleiades 
-has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, 
-Byzantine, Celtic, and Early Medieval geography.</p>
-<p>The <a href="/news/changes">most recently modified</a> resources are shown in the map at left.</p>
-<p>All published content is accessible to everyone under open license. To join and contribute new or improved content, please see <a href="welcome">Welcome to Pleiades</a>.</p>
-<p>For a complete listing of editors, content contributors, and financial supporters, please see the <a href="credits">credits page</a>.</p>
-</div>
-
-    <div style="clear:all;"></div>
-
-</div>
-
-<script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
-
-</div>
-
+      id="map" 
+      style="width:100%;height:480px;border:solid #ccc 1px;"></div>
+      <p><a tal:attributes="href string:${context/portal_url}/map_recent">Open fullscreen</a></p>
+    </div>
+    
+    <div style="float:right; width:30%; margin-left:1em">
+      <h1>About Pleiades</h1>
+      <p>Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create,
+        and share historical geographic information about the ancient world in digital form. At present, Pleiades 
+        has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, 
+        Byzantine, Celtic, and Early Medieval geography.</p>
+        <p>The <a href="/news/changes">most recently modified</a> resources are shown in the map at left.</p>
+        <p>All published content is accessible to everyone under open license. To join and contribute new or improved content, please see <a href="welcome">Welcome to Pleiades</a>.</p>
+        <p>For a complete listing of editors, content contributors, and financial supporters, please see the <a href="credits">credits page</a>.</p>
+      </div>
+      
+      <div style="clear:all;"></div>
+      
+    </div>
+    
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js"></script>
+    
+  </div>
+  
 </body>
 </html>
