@@ -15,11 +15,7 @@ var bounds = new mapboxgl.LngLatBounds([
     [85, 30]
 ])
 var mapOptionsInit = {
-    attributionControl: true,
-    customAttribution: [
-        'Map interaction design by Sean Gillies, David Glick, Alec Mitchell, Ryan M. Horne, and Tom Elliott.',
-        'Base style derived from Mapbox Outdoors by Tom Elliott.'
-    ],
+    attributionControl: false,
     container: 'map',
     style: 'mapbox://styles/isawnyu/ckglabv7q0ald19mnlbluh4sn',
     maxBounds: max_bounds,
@@ -27,11 +23,18 @@ var mapOptionsInit = {
     renderWorldCopies: false,
     maxZoom: max_zoom,
 };
-var map = new mapboxgl.Map(mapOptionsInit);
-map = map.addControl(new mapboxgl.NavigationControl({
+var map = new mapboxgl.Map(mapOptionsInit)
+map.addControl(new mapboxgl.AttributionControl({
+    compact: true,
+    customAttribution: [
+        'Base style derived from "Mapbox Streets".',
+        'Functionality and interaction design for Pleiades by Sean Gillies, David Glick, Alec Mitchell, Ryan M. Horne, and Tom Elliott. © New York University'
+    ]
+}));
+map.addControl(new mapboxgl.NavigationControl({
     showCompass: false,
 }), 'top-left');
-map = map.addControl(new mapboxgl.ScaleControl());
+map.addControl(new mapboxgl.ScaleControl());
 map.scrollZoom.disable();
 
 /* Define and initialize custom controls */
