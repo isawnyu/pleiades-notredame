@@ -28,7 +28,7 @@ i18n:domain="plone">
       padding: 0px;
     }
     .mapbox-gl-reset-box { 
-        background-image: url('reset-box.svg');
+        background-image: url('https://atlantides.org/images/reset-box.svg');
         background-repeat: no-repeat;
         background-position: center;
         pointer-events: auto;
