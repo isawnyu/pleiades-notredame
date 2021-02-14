@@ -17,7 +17,7 @@ var bounds = new mapboxgl.LngLatBounds([
 var mapOptionsInit = {
     attributionControl: false,
     container: 'map',
-    style: 'mapbox://styles/isawnyu/ckglabv7q0ald19mnlbluh4sn',
+    style: 'mapbox://styles/isawnyu/ckl55kmn63m7q17rmd7d47z2l',
     maxBounds: max_bounds,
     bounds: bounds,
     renderWorldCopies: false,
@@ -27,8 +27,8 @@ var map = new mapboxgl.Map(mapOptionsInit)
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
     customAttribution: [
-        'Base style derived from "Mapbox Streets".',
-        'Functionality and interaction design for Pleiades by Sean Gillies, David Glick, Alec Mitchell, Ryan M. Horne, and Tom Elliott. © New York University'
+        'Functionality and interaction design for Pleiades by Sean Gillies, David Glick, Alec Mitchell, Ryan M. Horne, and Tom Elliott. © New York University',
+        'Base style "2021 Pleiades Modern" was derived by Tom Elliott from Mapbox "Outdoors".',
     ]
 }));
 map.addControl(new mapboxgl.NavigationControl({
@@ -98,6 +98,34 @@ if (map.loaded()) {
 } else {
     map.on('load', () => populateMap(map));
 }
+map.on('click', function(e) {
+    var features = map.queryRenderedFeatures(e.point, {
+        layers: ['layer-recent']
+    });
+    if (features.length > 0) {
+        var feature = features[0];
+        var snippet;
+        if (feature.properties.link !== undefined) {
+            snippet = '<dd><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></dd>'
+        } else {
+            snippet = '<dd>' + feature.properties.title + '</dd>'
+        }
+        if (feature.properties.description !== undefined) {
+            var desc;
+            var words = feature.properties.description.split(' ');
+            if (words.length > 25) {
+                desc = words.slice(0, 26).join(' ') + '...'
+            } else {
+                desc = feature.properties.description;
+            }
+            snippet += '<dt>' + desc + '</dt>'
+        }
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(snippet)
+            .addTo(map);
+    }
+});
 
 function populateMap(map) {
     var where = getJSON("where");
@@ -131,10 +159,15 @@ function populateMap(map) {
             'icon-allow-overlap': true
         }
     });
+    map.on('mouseenter', 'layer-recent', function() {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'layer-recent', function() {
+        map.getCanvas().style.cursor = '';
+    });
     var sw = new mapboxgl.LngLat(where.bbox[0], where.bbox[1]);
     var ne = new mapboxgl.LngLat(where.bbox[2], where.bbox[3]);
     var bounds = new mapboxgl.LngLatBounds(sw, ne);
-    console.debug(bounds);
     map.fitBounds(bounds, { 'padding': boxpad, 'maxZoom': initial_zoom });
 }
 
@@ -150,7 +183,6 @@ function getJSON(rel) {
         var uri = linkNode.getAttribute("href");
         var json = unescape(uri.split(',').pop());
         j = JSON.parse(json);
-        console.debug(j)
         return j;
     } else {
         return null;
