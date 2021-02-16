@@ -87,9 +87,9 @@ i18n:domain="plone">
       <div id="map-block">
         <div id="map"></div>
         <div id="below-map">
-<!--          <div id="map-links">
-            <p><a tal:attributes="href string:${context/portal_url}/map_recent">Open fullscreen</a></p>
-          </div> -->
+          <div id="map-links">
+            <p><a tal:attributes="href string:${context/portal_url}/map_recent">Open map fullscreen</a></p>
+          </div>
           <div id="map-credit">
             <p>This map displays <a tal:attributes="href string:${context/portal_url}/help/get-coordinates/?searchterm=%22representative%20point%22">representative points</a> for the 100 most recently modified place resources. Click an orange dot for related details.</p>
           </div>

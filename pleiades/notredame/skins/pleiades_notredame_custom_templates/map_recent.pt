@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone">
+
+<head>
+
+    <style>
+      body { margin: 0px }
+      #map { width:100%; height:100%; }
+      .hidden { display: none; }
+      .mapbox-gl-reset-box { 
+        background-image: url('https://atlantides.org/images/reset-box.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: auto;
+      }
+      .mapbox-improve-map {
+        display: none;
+      }
+    </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+  <div 
+    tal:define="results python:here.portal_catalog.searchResults(portal_type=['Place'], sort_on='modified', sort_order='descending', sort_limit=100)[:100];
+    Batch python:modules['Products.CMFPlone'].Batch;
+    b_size python:100;
+    b_start python:0;
+    b_start request/b_start | b_start;
+    search_json nocall:here/@@search-json/data_uri;" >
+
+    <a class="hidden" href=""
+      rel="where"
+      type="application/json"
+      tal:attributes="href python:search_json(brains=Batch(results, b_size, int(b_start), orphan=1));"></a>
+  
+    <div id="map"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js"></script>
+</div>
+</body>
+</html>
