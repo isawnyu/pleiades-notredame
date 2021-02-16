@@ -19,10 +19,21 @@
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_kml?${request/QUERY_STRING}"/>
   <style>
-    #map { height: 600px; float: right; }
+    #map-block { width: 100% }
+    #map { height: 80vh; width:100%; float: right; }
     #resultsContainer { float: left; }
-    #results { max-height: 600px; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
+    #results { max-height: 80vh; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
     .hidden { display: none; }
+    #below-map { 
+      width: 100%;
+      color: #555; 
+      margin: 0px; 
+      text-align: left;
+    }
+    #below-map p {
+      margin: 0px;
+      padding: 0px;
+    }
     .mapbox-gl-reset-box { 
       background-image: url('https://atlantides.org/images/reset-box.svg');
       background-repeat: no-repeat;
@@ -220,7 +231,14 @@
     </td>
 
     <td style="width:46%">
-    <div id="map" tal:condition="results"></div>
+      <div id="map-block">
+        <div id="map" tal:condition="results"></div>
+        <div id="below-map">
+          <div id="map-credit">
+            <p>This map displays <a tal:attributes="href string:${context/portal_url}/help/get-coordinates/?searchterm=%22representative%20point%22">representative points</a> for the search results listed on this page. Click an orange dot for related details.</p>
+          </div>
+        </div>
+      </div>
     </td>
 
     </tr>
