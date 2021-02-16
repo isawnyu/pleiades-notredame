@@ -18,19 +18,25 @@
     type="application/vnd.google-earth.kml+xml"
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_kml?${request/QUERY_STRING}"/>
-  <link rel="stylesheet" 
-    href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <style>
     #map { height: 600px; float: right; }
     #resultsContainer { float: left; }
     #results { max-height: 600px; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
     .hidden { display: none; }
-    .leaflet-control-zoom-reset {
-      background-image: url(zoom-reset.png);
-      margin-bottom: 5px; }
-    dl.searchResults dd { margin-bottom: 0.5em; }
+    .mapbox-gl-reset-box { 
+      background-image: url('https://atlantides.org/images/reset-box.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: auto;
+  }
+  .mapbox-improve-map {
+        display: none;
+  }
+  dl.searchResults dd { margin-bottom: 0.5em; }
   </style>
-  </metal:block>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</metal:block>
 
     <metal:block fill-slot="top_slot"
                  tal:define="dummy python:request.set('disable_border',1)" />
@@ -246,7 +252,6 @@ jQuery(function($) {
 });
 </script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>

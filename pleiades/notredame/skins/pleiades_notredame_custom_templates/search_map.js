@@ -1,59 +1,175 @@
-var L, PLZoom;
 var $ = jQuery;
-var target = null;
+const boxpad = 50;
+const max_zoom = 17;
+const initial_zoom = 15;
 
-PLZoom = L.Control.Zoom.extend({
-    onAdd: function(map) {
-        var className = 'leaflet-control-zoom',
-            container = L.DomUtil.create('div', className);
-        this._map = map;
-        this._createButton('Zoom reset',
-            className + '-reset',
-            container,
-            this._zoomReset,
-            this);
-        this._createButton('Zoom in',
-            className + '-in',
-            container,
-            this._zoomIn,
-            this);
-        this._createButton('Zoom out',
-            className + '-out',
-            container,
-            this._zoomOut,
-            this);
-        return container;
-    },
+/* Configure and initialize map and standard controls */
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw';
 
-    _zoomReset: function(e) {
-        this._map.fitBounds(this.options.initialBounds);
-    },
+var max_bounds = new mapboxgl.LngLatBounds([
+    [-45, -20],
+    [160, 80]
+]);
+var bounds = new mapboxgl.LngLatBounds([
+    [-20, 0],
+    [85, 30]
+])
+var mapOptionsInit = {
+    attributionControl: false,
+    container: 'map',
+    style: 'mapbox://styles/isawnyu/ckl55kmn63m7q17rmd7d47z2l',
+    maxBounds: max_bounds,
+    bounds: bounds,
+    renderWorldCopies: false,
+    maxZoom: max_zoom,
+};
+var map = new mapboxgl.Map(mapOptionsInit)
+map.addControl(new mapboxgl.AttributionControl({
+    compact: true,
+    customAttribution: [
+        'Functionality and interaction design for Pleiades by Sean Gillies, David Glick, Alec Mitchell, Ryan M. Horne, and Tom Elliott. © New York University',
+        'Base style "2021 Pleiades Modern" was derived by Tom Elliott from Mapbox "Outdoors".',
+    ]
+}));
+map.addControl(new mapboxgl.NavigationControl({
+    showCompass: false,
+}), 'top-left');
+map.addControl(new mapboxgl.ScaleControl());
+map.scrollZoom.disable();
 
-    _zoomIn: function(e) {
-        this._map.zoomIn(e.shiftKey ? 3 : 1);
-    },
+/* Define and initialize custom controls */
+/* Original class implementation by Kristjan Tallinn via https://codepen.io/kriz/pen/jdxYXY */
 
-    _zoomOut: function(e) {
-        this._map.zoomOut(e.shiftKey ? 3 : 1);
-    },
+class MapboxGLButtonControl {
+    constructor({
+        className = "",
+        title = "",
+        eventHandler = mapboxgl.eventHandler,
+        container = undefined
+    }) {
+        this._className = className;
+        this._title = title;
+        this._eventHandler = eventHandler;
+        this._container = container;
+    }
+    onAdd(map) {
+        this._btn = document.createElement("button");
+        this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+        this._btn.type = "button";
+        this._btn.title = this._title;
+        this._btn.onclick = this._eventHandler;
 
-    _createButton: function(title, className, container, fn, context) {
-        var link = L.DomUtil.create('a', className, container);
-        link.href = '#';
-        link.title = title;
-        L.DomEvent
-            .on(link, 'click', L.DomEvent.stopPropagation)
-            .on(link, 'mousedown', L.DomEvent.stopPropagation)
-            .on(link, 'dblclick', L.DomEvent.stopPropagation)
-            .on(link, 'click', L.DomEvent.preventDefault)
-            .on(link, 'click', fn, context);
-        return link;
+        this._wrapper = document.createElement("span");
+        this._wrapper.className = "mapboxgl-ctrl-icon";
+        this._wrapper.setAttribute('aria-hidden', true);
+        this._wrapper.appendChild(this._btn);
+
+        if (this._container === undefined) {
+            this._container = document.createElement("div");
+            this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+        } else {
+            this._container = document.getElementById(this._containerID);
+        }
+        this._container.appendChild(this._wrapper);
+
+        return this._container;
+    }
+    onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+    }
+}
+// Controls to reset zoom & pan
+
+function hdlResetBox() {
+    map.fitBounds(bounds, { 'padding': boxpad });
+}
+map = map.addControl(new MapboxGLButtonControl({
+    className: "mapbox-gl-reset-box",
+    title: "Reset Map View",
+    eventHandler: hdlResetBox
+}), 'top-left');
+
+/* Define styles and layouts for the layers we will use */
+
+/* populate the map */
+if (map.loaded()) {
+    populateMap(map);
+} else {
+    map.on('load', () => populateMap(map));
+}
+map.on('click', function(e) {
+    var features = map.queryRenderedFeatures(e.point, {
+        layers: ['layer-recent']
+    });
+    if (features.length > 0) {
+        var feature = features[0];
+        var snippet;
+        if (feature.properties.link !== undefined) {
+            snippet = '<dd><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></dd>'
+        } else {
+            snippet = '<dd>' + feature.properties.title + '</dd>'
+        }
+        if (feature.properties.description !== undefined) {
+            var desc;
+            var words = feature.properties.description.split(' ');
+            if (words.length > 25) {
+                desc = words.slice(0, 26).join(' ') + '...'
+            } else {
+                desc = feature.properties.description;
+            }
+            snippet += '<dt>' + desc + '</dt>'
+        }
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(snippet)
+            .addTo(map);
     }
 });
 
-pl_zoom = function(options) {
-    return new PLZoom(options);
-};
+function populateMap(map) {
+    var where = getJSON("where");
+    var features = Array();
+    for (i = 0; i < where.features.length; i++) {
+        var f = where.features[i];
+        var feature = {
+            'type': 'Feature',
+            'geometry': f.geometry,
+            'properties': {
+                'title': f.properties.title,
+                'description': f.properties.description,
+                'link': f.properties.link
+            }
+        }
+        features.push(feature);
+    }
+    map.addSource('recent', {
+        'type': 'geojson',
+        'data': {
+            'type': 'FeatureCollection',
+            'features': features
+        }
+    });
+    map.addLayer({
+        'id': 'layer-recent',
+        'source': 'recent',
+        'type': 'symbol',
+        'layout': {
+            'icon-image': 'circle-orange-15',
+            'icon-allow-overlap': true
+        }
+    });
+    map.on('mouseenter', 'layer-recent', function() {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'layer-recent', function() {
+        map.getCanvas().style.cursor = '';
+    });
+    var sw = new mapboxgl.LngLat(where.bbox[0], where.bbox[1]);
+    var ne = new mapboxgl.LngLat(where.bbox[2], where.bbox[3]);
+    var bounds = new mapboxgl.LngLatBounds(sw, ne);
+    map.fitBounds(bounds, { 'padding': boxpad, 'maxZoom': initial_zoom });
+}
 
 function getJSON(rel) {
     var documentNode = document;
@@ -66,59 +182,9 @@ function getJSON(rel) {
     if (linkNode != null) {
         var uri = linkNode.getAttribute("href");
         var json = unescape(uri.split(',').pop());
-        return JSON.parse(json);
+        j = JSON.parse(json);
+        return j;
     } else {
         return null;
     }
 }
-
-$(function() {
-    var where = getJSON("where");
-
-    var bounds = null;
-    var baselineBounds = null;
-
-    var map = L.map('map', { attributionControl: false });
-    L.control.attribution({ prefix: false, position: 'bottomright' }).addTo(map);
-
-    var outdoors2020 = L.tileLayer(
-        'https://api.mapbox.com/styles/v1/isawnyu/ckglabv7q0ald19mnlbluh4sn/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw', {
-            attribution: 'Powered by <a href="http://leafletjs.com/">Leaflet</a> and <a href="https://www.mapbox.com/">Mapbox</a>. Map base from MapBox "Streets v8" and "Terrain v2" datasets using a modified "Outdoors" style in MapBox Studio.',
-        });
-    outdoors2020.addTo(map);
-
-    function rebound() {
-        /* If there's no spatial context at all, set large bounds. */
-        if (!bounds) {
-            bounds = L.latLngBounds([
-                [20.0, -5.0],
-                [50.0, 45.0]
-            ]);
-        }
-        /* map.setView(bounds.getCenter(), Math.min(map.getBoundsZoom(bounds), 101), true); */
-        map.fitBounds(bounds, { maxZoom: 10 });
-        pl_zoom({ initialBounds: bounds }).addTo(map);
-    }
-
-    function setupFeature(f) {
-        var layer = L.GeoJSON.geometryToLayer(f);
-        layer.bindPopup(
-            '<dt><a href="' + f.properties.link + '">' + f.properties.title + '</a></dt>' +
-            '<dd>' + f.properties.description + '</dd>');
-        layer.addTo(map);
-        jQuery("dt#" + f.id + " a").mouseover(
-            function() { layer.openPopup(); });
-        jQuery("dt#" + f.id + " a").mouseout(
-            function() { layer.closePopup(); });
-    }
-
-    for (i = 0; i < where.features.length; i++) {
-        var f = where.features[i];
-        setupFeature(f);
-    }
-    bounds = L.latLngBounds([
-        [where.bbox[1], where.bbox[0]],
-        [where.bbox[3], where.bbox[2]]
-    ]).pad(0.10);
-    rebound();
-});
