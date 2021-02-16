@@ -18,19 +18,36 @@
     type="application/vnd.google-earth.kml+xml"
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_kml?${request/QUERY_STRING}"/>
-  <link rel="stylesheet" 
-    href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <style>
-    #map { height: 600px; float: right; }
+    #map-block { width: 100% }
+    #map { height: 80vh; width:100%; float: right; }
     #resultsContainer { float: left; }
-    #results { max-height: 600px; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
+    #results { max-height: 80vh; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
     .hidden { display: none; }
-    .leaflet-control-zoom-reset {
-      background-image: url(zoom-reset.png);
-      margin-bottom: 5px; }
-    dl.searchResults dd { margin-bottom: 0.5em; }
+    #below-map { 
+      width: 100%;
+      color: #555; 
+      margin: 0px; 
+      text-align: left;
+    }
+    #below-map p {
+      margin: 0px;
+      padding: 0px;
+    }
+    .mapbox-gl-reset-box { 
+      background-image: url('https://atlantides.org/images/reset-box.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: auto;
+  }
+  .mapbox-improve-map {
+        display: none;
+  }
+  dl.searchResults dd { margin-bottom: 0.5em; }
   </style>
-  </metal:block>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+</metal:block>
 
     <metal:block fill-slot="top_slot"
                  tal:define="dummy python:request.set('disable_border',1)" />
@@ -44,7 +61,7 @@
                  use_navigation_root request/use_navigation_root | python:True;
                  results python:here.queryCatalog(REQUEST=request,use_types_blacklist=use_types_blacklist, use_navigation_root=use_navigation_root);
                  Batch python:modules['Products.CMFPlone'].Batch;
-                 b_size python:20;b_start python:0;b_start request/b_start | b_start;
+                 b_size python:100;b_start python:0;b_start request/b_start | b_start;
                  desc_length site_properties/search_results_description_length;
                  desc_ellipsis site_properties/ellipsis;
                  searchterm request/SearchableText|nothing;
@@ -104,7 +121,7 @@
     <div tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
     <p>Ids from this batch: <a id="result-batch-ids-visibility" href="#">toggle visibility</a></p>
-    <textarea id="result-batch-ids" rows="20" style="display:none; width:50%; margin-bottom:1em;" tal:content="python:'\n'.join([str(result.getId) for result in batch])"></textarea>
+    <textarea id="result-batch-ids" rows="100" style="display:none; width:50%; margin-bottom:1em;" tal:content="python:'\n'.join([str(result.getId) for result in batch])"></textarea>
     <p class="hidden">
       <a href=""
          rel="where"
@@ -139,7 +156,7 @@
                  tal:attributes="href url;
                                  class string:$item_wf_state_class"
                  tal:content="result/pretty_title_or_id" />
-               <span tal:condition="python:result_type in ['Name', 'Location']" tal:define="parent python:here.getParentBrain(result)">(of 
+               <span tal:condition="python:result_type in ['Name', 'Location', 'Connection']" tal:define="parent python:here.getParentBrain(result)">(of 
                <a href="#" tal:attributes="href parent/getURL" tal:on-error="string: #error"><span tal:replace="parent/Title" tal:on-error="string: Failed to look up parent URL!">Foo</span></a>)</span>
             </dt>
             
@@ -214,7 +231,14 @@
     </td>
 
     <td style="width:46%">
-    <div id="map" tal:condition="results"></div>
+      <div id="map-block">
+        <div id="map" tal:condition="results"></div>
+        <div id="below-map">
+          <div id="map-credit">
+            <p>This map displays <a tal:attributes="href string:${context/portal_url}/help/get-coordinates/?searchterm=%22representative%20point%22">representative points</a> for the search results listed on this page. Click an orange dot for related details.</p>
+          </div>
+        </div>
+      </div>
     </td>
 
     </tr>
@@ -246,7 +270,6 @@ jQuery(function($) {
 });
 </script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
 
 </div>
