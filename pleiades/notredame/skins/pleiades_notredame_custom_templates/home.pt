@@ -99,13 +99,18 @@ i18n:domain="plone">
     
     <div style="float:right; width:30%; margin-left:1em">
       <h1>About Pleiades</h1>
-      <p>Pleiades gives scholars, students, and enthusiasts worldwide the ability to use, create,
-        and share historical geographic information about the ancient world in digital form. At present, Pleiades 
-        has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, 
-        Byzantine, Celtic, and Early Medieval geography.</p>
+      <p><i>Pleiades</i> gives scholars, students, and enthusiasts worldwide the ability to use, create,
+        and share historical geographic information about the ancient world in digital form. At present, <i>Pleiades</i> 
+        has extensive coverage for the Greek and Roman world, and is expanding culturally, spatially, and temporally.</p>
         <p>The <a href="/news/changes">most recently modified</a> resources are shown in the map at left.</p>
-        <p>All published content is accessible to everyone under open license. To join and contribute new or improved content, please see <a href="welcome">Welcome to Pleiades</a>.</p>
-        <p>For a complete listing of editors, content contributors, and financial supporters, please see the <a href="credits">credits page</a>.</p>
+        <p>All published content is accessible to everyone under open license. To join the community in order to contribute new or improved content, please see <a href="/participate">the Participate page</a>.</p>
+        <p>For a complete listing of editors and content contributors, please see the <a href="/credits">credits page</a>.</p>
+        <p>To learn more about the history, aims, and structure of the project, please consult:</p>
+        <ul>
+          <li><a href="/docs/papers-and-presentations">Papers and Presentations</a><br />Journal articles and book chapters, as well as slides, texts, posters, and other materials from conferences and workshops, that describe and report on Pleiades.</li>
+          <li><a href="/docs/reports-proposals">Reports and Proposals</a><br />Project proposals and reports as submitted to the National Endowment for the Humanities (our major sponsor).</li>
+          <li><a href="/help/conceptual-overview">Conceptual Overview</a><br />An introduction to Pleiades and the types of information resources it contains.</li>
+        </ul>
       </div>
       
       <div style="clear:all;"></div>
