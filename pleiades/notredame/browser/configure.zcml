@@ -134,4 +134,11 @@
         directory="template_overrides"
         layer=".interfaces.IPlonethemeNotredameLayer" />
 
+    <!-- Customized RSS Portlet for toots -->
+    <plone:portletRenderer
+        portlet="plone.app.portlets.portlets.rss.IRSSPortlet"
+        class=".portlets.PleiadesRSSRenderer"
+        layer=".interfaces.IPlonethemeNotredameLayer"
+        />
+
 </configure>
