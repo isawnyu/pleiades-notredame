@@ -359,6 +359,30 @@ dl.ReferenceList dt {
 dl.ReferenceList dd ul {
   margin-left: 3em;
 }
+
+/* RSS portlet customizations */
+.portlet.portletRss a, .portlet.portletRss a.tile {
+    color: #2575AD;
+}
+
+.portlet.portletRss a.tile {
+    font-weight: bold;
+}
+
+.portlet.portletRss a:hover {
+    color: #036;
+    text-decoration: underline;
+}
+
+.portletRss .tootBody p {
+  display: none;
+}
+
+.portletRss .tootBody p:nth-child(1), dl.portletRss .tootBody p:nth-child(2) {
+  display: block;
+}
+
+
 /* YOUR CSS RULES STOP HERE */
 
 /* </dtml-with> */

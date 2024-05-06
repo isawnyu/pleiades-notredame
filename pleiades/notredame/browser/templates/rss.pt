@@ -42,9 +42,9 @@
                     </span>
                 </tal:toot>
             </a>
-            <tal:toot tal:condition="not:item/title">
-                <p tal:content="structure item/summary" tal:condition="item/summary|nothing">Summary</p>
-            </tal:toot>
+            <div class="tootBody" tal:condition="not:item/title">
+                <p tal:replace="structure item/summary" tal:condition="item/summary|nothing">Summary</p>
+            </div>
         </dd>
     </tal:rss>
     <dd class="portletFooter" tal:condition="view/feedAvailable">
