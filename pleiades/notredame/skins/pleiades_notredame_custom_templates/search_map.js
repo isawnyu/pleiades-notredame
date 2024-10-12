@@ -2,24 +2,34 @@ var $ = jQuery;
 const boxpad = 50;
 const max_zoom = 17;
 const initial_zoom = 15;
+// Bounds values
+const INITIAL_WEST = -20.0;
+const INITIAL_NORTH = 30.0;
+const INITIAL_EAST = 85.0;
+const INITIAL_SOUTH = 0.0;
+const MAX_WEST = -30.0;
+const MAX_NORTH = 80.0;
+const MAX_EAST = 180.0;
+const MAX_SOUTH = -45.0;
 
 /* Configure and initialize map and standard controls */
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhd255dSIsImEiOiJja2FlaWk4MG0yaHY0MnNvemRneWF0d2RnIn0.FgwFQtymPTHYPYYha5mfHw';
 
+// Bounding boxes are defined by SW and NE corners
 var max_bounds = new mapboxgl.LngLatBounds([
-    [-45, -20],
-    [160, 80]
+    [MAX_WEST, MAX_SOUTH],
+    [MAX_EAST, MAX_NORTH]
 ]);
-var bounds = new mapboxgl.LngLatBounds([
-    [-20, 0],
-    [85, 30]
-])
+var initial_bounds = new mapboxgl.LngLatBounds([
+    [INITIAL_WEST, INITIAL_SOUTH],
+    [INITIAL_EAST, INITIAL_NORTH]
+]);
 var mapOptionsInit = {
     attributionControl: false,
     container: 'map',
     style: 'mapbox://styles/isawnyu/ckl55kmn63m7q17rmd7d47z2l',
+    bounds: initial_bounds,
     maxBounds: max_bounds,
-    bounds: bounds,
     renderWorldCopies: false,
     maxZoom: max_zoom,
 };
