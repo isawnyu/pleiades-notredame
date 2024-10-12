@@ -20,7 +20,7 @@ var max_bounds = new mapboxgl.LngLatBounds([
     [MAX_WEST, MAX_SOUTH],
     [MAX_EAST, MAX_NORTH]
 ]);
-var initial_bounds = new mapboxgl.LngLatBounds([
+var bounds = new mapboxgl.LngLatBounds([
     [INITIAL_WEST, INITIAL_SOUTH],
     [INITIAL_EAST, INITIAL_NORTH]
 ]);
@@ -28,7 +28,7 @@ var mapOptionsInit = {
     attributionControl: false,
     container: 'map',
     style: 'mapbox://styles/isawnyu/ckl55kmn63m7q17rmd7d47z2l',
-    bounds: initial_bounds,
+    bounds: bounds,
     maxBounds: max_bounds,
     renderWorldCopies: false,
     maxZoom: max_zoom,
