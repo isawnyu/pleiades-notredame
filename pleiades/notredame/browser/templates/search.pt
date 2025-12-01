@@ -270,7 +270,7 @@ jQuery(function($) {
 });
 </script>
 
-<script tal:attributes="src string:${context/portal_url}/search_map.js"></script>
+<script tal:attributes="src string:${context/portal_url}/search_map.js?v=20251201-1"></script>
 
 </div>
 

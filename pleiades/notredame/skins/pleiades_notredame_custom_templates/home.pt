@@ -117,7 +117,7 @@ i18n:domain="plone">
       
     </div>
     
-    <script tal:attributes="src string:${context/portal_url}/recent_map.js"></script>
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251201-1"></script>
     
   </div>
   

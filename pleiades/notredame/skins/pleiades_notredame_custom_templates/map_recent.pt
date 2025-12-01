@@ -43,7 +43,7 @@
     <div id="map"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script tal:attributes="src string:${context/portal_url}/recent_map.js"></script>
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251201-1"></script>
 </div>
 </body>
 </html>
