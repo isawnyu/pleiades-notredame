@@ -112,14 +112,17 @@ i18n:domain="plone">
           <li><a tal:attributes="href string:${context/portal_url}/help/conceptual-overview">Conceptual Overview</a><br />An introduction to Pleiades and the types of information resources it contains.</li>
         </ul>
       </div>
-      
+
       <div style="clear:all;"></div>
-      
+
     </div>
-    
-    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251201-1"></script>
-    
+
+    <script tal:define="token python:context.portal_registry.get('pleiades.mapbox.access_token', '')"
+            tal:content="structure string:window.PLEIADES_MAPBOX_TOKEN = &quot;${token}&quot;;">
+    </script>
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251203"></script>
+
   </div>
-  
+
 </body>
 </html>
