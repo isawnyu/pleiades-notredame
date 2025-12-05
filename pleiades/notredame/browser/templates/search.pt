@@ -8,13 +8,13 @@
 
 <head>
   <metal:block metal:fill-slot="head_slot">
-  <link rel="alternate" 
-    title="RSS 1.0" 
+  <link rel="alternate"
+    title="RSS 1.0"
     type="application/rss+xml"
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_rss?${request/QUERY_STRING}"/>
-  <link rel="alternate" 
-    title="KML" 
+  <link rel="alternate"
+    title="KML"
     type="application/vnd.google-earth.kml+xml"
     tal:condition="request/SearchableText|nothing"
     tal:attributes="href string:${context/absolute_url}/search_kml?${request/QUERY_STRING}"/>
@@ -24,17 +24,17 @@
     #resultsContainer { float: left; }
     #results { max-height: 80vh; padding-right: 2em; margin-bottom: 1em; overflow-y: auto}
     .hidden { display: none; }
-    #below-map { 
+    #below-map {
       width: 100%;
-      color: #555; 
-      margin: 0px; 
+      color: #555;
+      margin: 0px;
       text-align: left;
     }
     #below-map p {
       margin: 0px;
       padding: 0px;
     }
-    .mapbox-gl-reset-box { 
+    .mapbox-gl-reset-box {
       background-image: url('https://atlantides.org/images/reset-box.svg');
       background-repeat: no-repeat;
       background-position: center;
@@ -68,7 +68,7 @@
                  use_view_action site_properties/typesUseViewActionInListings|python:();
                  search_json nocall:here/@@search-json/data_uri;">
 
-    <form id="searchform" 
+    <form id="searchform"
           action="search"
           class="searchPage">
         <div>
@@ -108,8 +108,8 @@
         <span class="discreet">
         &mdash;
         <span i18n:translate="batch_x_items_matching_your_criteria"
-        ><span i18n:name="number" 
-        tal:omit-tag="" 
+        ><span i18n:name="number"
+        tal:omit-tag=""
         tal:content="python:len(results)">234</span> items matching your search terms</span>
       </span>
     </h1>
@@ -134,7 +134,7 @@
     <table>
     <tr>
     <td style="width:46%">
-    <div id="resultsContainer" 
+    <div id="resultsContainer"
           tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);
                       normalizeString nocall:context/@@plone/normalizeString;
@@ -152,14 +152,14 @@
                 tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type); id string:${result/getId};">
               <img tal:replace="structure item_icon/html_tag" />
                <a
-                 href="#" 
+                 href="#"
                  tal:attributes="href url;
                                  class string:$item_wf_state_class"
                  tal:content="result/pretty_title_or_id" />
-               <span tal:condition="python:result_type in ['Name', 'Location', 'Connection']" tal:define="parent python:here.getParentBrain(result)">(of 
+               <span tal:condition="python:result_type in ['Name', 'Location', 'Connection']" tal:define="parent python:here.getParentBrain(result)">(of
                <a href="#" tal:attributes="href parent/getURL" tal:on-error="string: #error"><span tal:replace="parent/Title" tal:on-error="string: Failed to look up parent URL!">Foo</span></a>)</span>
             </dt>
-            
+
             <dd>
                 <span tal:replace="python:plone_view.cropText(result.Description, desc_length, desc_ellipsis)">
                     Cropped description
@@ -204,9 +204,9 @@
                                Category
                             </a><tal:separator condition="not: repeat/category/end">,</tal:separator>
                         </span>
-                </span>    
+                </span>
 
-                <span class="relevance" 
+                <span class="relevance"
                       tal:condition="result/data_record_normalized_score_">
                     &mdash;
                     <tal:relevance i18n:translate="label_relevance_percentage">
@@ -223,7 +223,7 @@
         </tal:entry>
         </tal:results>
         </dl>
-        
+
         </div>
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
@@ -270,9 +270,7 @@ jQuery(function($) {
 });
 </script>
 
-<script tal:define="token python:context.portal_registry.get('pleiades.mapbox.access_token', '')"
-        tal:content="structure string:window.PLEIADES_MAPBOX_TOKEN = &quot;${token}&quot;;">
-</script>
+<script tal:attributes="src string:${context/portal_url}/@@mapbox-settings.js"></script>
 <script tal:attributes="src string:${context/portal_url}/search_map.js?v=20251203"></script>
 
 </div>
