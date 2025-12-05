@@ -19,12 +19,4 @@
       title="Remove GA JS"
       import_steps="jsregistry" />
 
-  <genericsetup:upgradeDepends
-      profile="pleiades.notredame:default"
-      source="2"
-      destination="3"
-      sortkey="2"
-      title="Add Mapbox registry record"
-      import_steps="plone.app.registry" />
-
 </configure>
