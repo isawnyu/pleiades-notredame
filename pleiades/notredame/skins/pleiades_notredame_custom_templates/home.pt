@@ -112,14 +112,14 @@ i18n:domain="plone">
           <li><a tal:attributes="href string:${context/portal_url}/help/conceptual-overview">Conceptual Overview</a><br />An introduction to Pleiades and the types of information resources it contains.</li>
         </ul>
       </div>
-      
+
       <div style="clear:all;"></div>
-      
+
     </div>
-    
-    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251201-1"></script>
-    
+
+    <script tal:attributes="src string:${context/portal_url}/recent_map.js?v=20251203"></script>
+
   </div>
-  
+
 </body>
 </html>

@@ -2,22 +2,22 @@
 <tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
 
 <!-- Propagates search term wildcard, a smelly hack -->
-<tal:b 
-  condition="python:request.get('submit', 'Submit') != 'Advanced Search' 
-             and request.get('SearchableText') 
-             and not request['SearchableText'].endswith('*') 
+<tal:b
+  condition="python:request.get('submit', 'Submit') != 'Advanced Search'
+             and request.get('SearchableText')
+             and not request['SearchableText'].endswith('*')
              and request.set('QUERY_STRING', request['QUERY_STRING'].replace(request['SearchableText'], request['SearchableText']+'*'))"
     />
-<tal:b 
-  condition="python:request.get('submit', 'Submit') != 'Advanced Search' 
-             and request.get('SearchableText') 
-             and not request['SearchableText'].endswith('*') 
+<tal:b
+  condition="python:request.get('submit', 'Submit') != 'Advanced Search'
+             and request.get('SearchableText')
+             and not request['SearchableText'].endswith('*')
              and request.set('SearchableText', request['SearchableText']+'*')"
     />
 
 <!-- Customize to send a site message on every page -->
-<!--tal:b 
-  condition="python:request and context.plone_utils.addPortalMessage((u'Site will be read-only while undergoing maintenance from 18:00 US Eastern Time on September 9 through 11:00 on September 10.'))" 
+<!--tal:b
+  condition="python:request and context.plone_utils.addPortalMessage((u'Site will be read-only while undergoing maintenance from 18:00 US Eastern Time on September 9 through 11:00 on September 10.'))"
     ></tal:b-->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -35,7 +35,7 @@
         dummy python:request.RESPONSE.setHeader('X-UA-Compatible', 'IE=edge,chrome=1');"
     tal:attributes="lang lang;"
     prefix="
-            bibo: http://purl.org/ontology/bibo/ 
+            bibo: http://purl.org/ontology/bibo/
             cc: http://creativecommons.org/ns#
             dcterms: http://purl.org/dc/terms/
             foaf: http://xmlns.com/foaf/0.1/
@@ -66,6 +66,7 @@
         <metal:headslot define-slot="head_slot" />
         <metal:styleslot define-slot="style_slot" />
         <metal:javascriptslot define-slot="javascript_head_slot" />
+        <script tal:attributes="src string:${portal_url}/@@mapbox-settings.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" />
         <meta name="generator" content="Plone - http://plone.org" />
@@ -151,7 +152,7 @@
                                  </metal:comment>
                                  <span tal:condition="python:context.Type() in ['Connection', 'Location', 'Name', 'Place']"
                                        id="content-type-title-icon" tal:attributes="class python:context.Type() + '-icon'"></span>
-                                 <span> 
+                                 <span>
                                      <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
                                          Generic KSS Title. Is rendered with class="documentFirstHeading".
                                      </h1>
