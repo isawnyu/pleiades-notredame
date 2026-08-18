@@ -83,6 +83,12 @@
                     data-portal-url portal_url;
                     data-base-url context/absolute_url">
 
+<script type="ignore">
+    <a href="/.within.website/x/cmd/anubis/api/honeypot/a819869a-6163-4268-a61c-9b6c3805edc1/init">
+    Don't click me
+    </a>
+</script>
+
 <div id="visual-portal-wrapper">
   <div id="visual-padded-portal-wrapper">
 
